@@ -2,27 +2,15 @@
 
 
 
-
-
-
-
-
-
-
-
-
   
 
 
-<html class="theme-next pisces use-motion" lang="">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
-
-
-
 
 
 
@@ -49,7 +37,36 @@
 
 
 
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
 
 
 
@@ -58,25 +75,32 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
 
 
 
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Wiya&#39;s blog">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Wiya&#39;s blog">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Wiya&#39;s blog">
 
 
 
@@ -84,14 +108,15 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    version: '6.2.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -103,33 +128,12 @@
 </script>
 
 
-  
-
-
-
-
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Wiya&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Wiya&#39;s blog">
-<meta property="og:locale" content="default">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wiya&#39;s blog">
-
-
-
-
-
 
   <link rel="canonical" href="http://yoursite.com/"/>
 
 
 
-<script type="text/javascript" id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
+
 
   <title>Wiya's blog</title>
   
@@ -142,36 +146,14 @@
 
 
 
-  <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
 
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
-  </style>
-</noscript>
+
+
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -179,7 +161,8 @@
   
 
   <div class="container sidebar-position-left 
-  page-home">
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -188,21 +171,19 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Wiya's blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
       
         <p class="site-subtitle">Welcome to Wiya's blog.</p>
       
-    
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
+    <button>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -210,42 +191,45 @@
   </div>
 </div>
 
-
-
 <nav class="site-nav">
+  
+
   
     <ul id="menu" class="menu">
       
         
-        
-        
-          
-          <li class="menu-item menu-item-home menu-item-active">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-    <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-    <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
-  </li>
-
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
       
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
       
     </ul>
-  
-
   
 
   
@@ -253,23 +237,12 @@
 
 
 
-  
-
-
-
-</div>
+ </div>
     </header>
-
-    
-
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
-            
-
-          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -282,8 +255,6 @@
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -294,7 +265,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wiya">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -308,40 +279,25 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/16/frame/nuxt/" itemprop="url">
-                  Nuxt.js学习
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/05/16/frame/nuxt/" itemprop="url">Nuxt.js学习</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="Post created: 2018-05-16 11:10:10 / Updated at: 11:26:26" itemprop="dateCreated datePublished" datetime="2018-05-16T11:10:10+08:00">2018-05-16</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-16T11:10:10+08:00">
+                2018-05-16
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
@@ -375,23 +331,20 @@
       
         
           
+            <p><br></p>
+<h4 id="关于Nuxt-js"><a href="#关于Nuxt-js" class="headerlink" title="关于Nuxt.js"></a>关于Nuxt.js</h4><p>2016年10月25日，zeit.co背后的团队对外发布了Next.js，一个react的服务端渲染应用框架。几个小时后，与Next.js异曲同工，一个基于vue.js的服务端渲染应用框架应用而生，我们称之：Nuxt.js。</p>
+<h4 id="Nuxt-js是什么？"><a href="#Nuxt-js是什么？" class="headerlink" title="Nuxt.js是什么？"></a>Nuxt.js是什么？</h4><p>Nuxt.js是一个基于vue.js的通用应用框架</p>
+<p>通过对客户端/服务端基础架构的抽象组织，Nuxt.js只要关注的是应用的UI渲染</p>
+<p>我们的目标是插件一个灵活的应用框架，你可以基于它初始化新项目的基础结构代码，或者在已有的Node.js项目中使用Nuxt.js</p>
+<p>Nuxt.js预设了利用vue.js开发服务端渲染的应用所需要的各种配置</p>
+<p>除此之外，我们还提供了一种命令叫：nuxt generate，为基于vue.js的用用提供生成对应的静态站点的功能</p>
+<p>我们相信这个命令所提供的功能，是向开发集成各种微服务的web应用迈开的新一步</p>
+<p>作为框架，nuxt.js为客户端/服务端这种典型的应用框架模式提供了许多有用的特性，例如异步数据加载，中间件支持，布局支持等</p>
+
           
-关于Nuxt.js2016年10月25日，zeit.co背后的团队对外发布了Next.js，一个react的服务端渲染应用框架。几个小时后，与Next.js异曲同工，一个基于vue.js的服务端渲染应用框架应用而生，我们称之：Nuxt.js。
-Nuxt.js是什么？Nuxt.js是一个基于vue.
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/16/frame/nuxt/#more" rel="contents">
-              more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
-
-    
-
     
     
     
@@ -428,8 +381,6 @@ Nuxt.js是什么？Nuxt.js是一个基于vue.
 
   
   
-  
-
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -442,7 +393,7 @@ Nuxt.js是什么？Nuxt.js是一个基于vue.
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wiya">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -456,52 +407,25 @@ Nuxt.js是什么？Nuxt.js是一个基于vue.
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/15/javascript/js事件循环/" itemprop="url">
-                  JS事件循环
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/05/15/javascript/js事件循环/" itemprop="url">JS事件循环</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="Post created: 2018-05-15 16:10:10" itemprop="dateCreated datePublished" datetime="2018-05-15T16:10:10+08:00">2018-05-15</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-15T16:10:10+08:00">
+                2018-05-15
+              </time>
             
 
             
-              
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-05-16 11:11:26" itemprop="dateModified" datetime="2018-05-16T11:11:26+08:00">2018-05-16</time>
-              
             
           </span>
 
@@ -535,23 +459,143 @@ Nuxt.js是什么？Nuxt.js是一个基于vue.
       
         
           
+            <p><br></p>
+<h4 id="一、为什么JS是单线程"><a href="#一、为什么JS是单线程" class="headerlink" title="一、为什么JS是单线程"></a>一、为什么JS是单线程</h4><pre><code>是由JS的用途决定的，其用途主要是与用户互动，以及操作DOM，如果不是单线程的话会带来很复杂的同步问题。比如：如果是多线程的话，一个用户新建一个DOM，另一个用户删除同一个DOM，该如何处理将变得非常麻烦。
+在html5中提出了web worker（todo 改天添加web worker的讲解）标准，JS可以创建多个线程或者是iframe，但是其他子线程主要是用来进行JS计算不能操作DOM，且受到子线程的控制。所以也并没有改变JS单线程的本质
+</code></pre><h4 id="二、同步和异步"><a href="#二、同步和异步" class="headerlink" title="二、同步和异步"></a>二、同步和异步</h4><pre><code>由于是单线程，所有任务需要排队，但是如果队列中所有的任务都是同步的话会造成资源的浪费。
+于是任务分为两类：同步任务和异步任务。
+异步任务的过程：
+    主线程（函数调用栈）发起一个异步请求，相应的工作线程接收请求，并告知主线程已经收到，主线程继续执行后面的同步代码，同时工作线程执行异步任务，工作线程完成工作后，通知主线程，主线程收到通知后，执行回调函数
+</code></pre><h4 id="三、宏任务和微任务"><a href="#三、宏任务和微任务" class="headerlink" title="三、宏任务和微任务"></a>三、宏任务和微任务</h4><pre><code>宏任务（micro-task）主要是：script代码段、setTimeout、setInterval、Promise的构造函数是同步的、setImmediate、I/O、UIrendering
+微任务（macro-task）主要是：Promise的回调、process.nextTick
+</code></pre><h4 id="四、任务队列和事件循环"><a href="#四、任务队列和事件循环" class="headerlink" title="四、任务队列和事件循环"></a>四、任务队列和事件循环</h4><pre><code>了解任务队列之前，先了解一下任务源，我们将发起异步任务的称之为任务源（setTimeout、Promise等），进入任务队列的是他们指定的任务。
+在一个线程中，事件循环是唯一的，任务队列是多个的。来自不同任务源的队列进入到不同的任务队列，setTimeout和setInterval是同源的
+</code></pre><h5 id="事件循环的步骤："><a href="#事件循环的步骤：" class="headerlink" title="事件循环的步骤："></a>事件循环的步骤：</h5><pre><code>1、运行主线程（函数调用栈）中的同步任务
+2、主线程（函数调用栈）执行到任务源时，通知相应的webAPIs进行相应的执行异步任务，将任务源指定的异步任务放入任务队列中
+3、主线程（函数调用栈）中的任务执行完毕后，然后执行所有的微任务，再执行宏任务，找到一个任务队列执行完毕，再执行所有的微任务
+4、不断执行第三步
+</code></pre><blockquote>
+<p>事件循环：指主线程重复从任务队列中取消息，执行的过程</p>
+</blockquote>
+<p>先来一个简单的例子：</p>
+<pre><code>setTimeout(() =&gt; {
+    console.log(&apos;begin&apos;)
+})
+
+new Promise((resolve) =&gt; {
+    console.log(&apos;promise begin&apos;)
+    for(let i = 0; i &lt; 1000; i++) {
+        i == 999 &amp;&amp; resolve()
+    }
+}).then(() =&gt; {
+    console.log(&apos;then begin&apos;)
+})
+
+console.log(&apos;end&apos;)
+</code></pre><p>因为promise的构造函数是同步的，promise.then是异步的微任务，所以promise beigin先于end<br>根据上面对宏任务和微任务的分析，其输出的情况为【promise begin——end——then begin——begin】<br>再来一个复杂点的，我们来一步一步的分析一个例子来看：</p>
+<pre><code>console.log(&apos;golb1&apos;);
+
+setTimeout(function() {
+    console.log(&apos;timeout1&apos;);
+    process.nextTick(function() {
+        console.log(&apos;timeout1_nextTick&apos;);
+    })
+    new Promise(function(resolve) {
+        console.log(&apos;timeout1_promise&apos;);
+        resolve();
+    }).then(function() {
+        console.log(&apos;timeout1_then&apos;)
+    })
+})
+
+setImmediate(function() {
+    console.log(&apos;immediate1&apos;);
+    process.nextTick(function() {
+        console.log(&apos;immediate1_nextTick&apos;);
+    })
+    new Promise(function(resolve) {
+        console.log(&apos;immediate1_promise&apos;);
+        resolve();
+    }).then(function() {
+        console.log(&apos;immediate1_then&apos;)
+    })
+})
+
+process.nextTick(function() {
+    console.log(&apos;glob1_nextTick&apos;);
+})
+
+new Promise(function(resolve) {
+    console.log(&apos;glob1_promise&apos;);
+    resolve();
+}).then(function() {
+    console.log(&apos;glob1_then&apos;)
+})
+
+setTimeout(function() {
+    console.log(&apos;timeout2&apos;);
+    process.nextTick(function() {
+        console.log(&apos;timeout2_nextTick&apos;);
+    })
+    new Promise(function(resolve) {
+        console.log(&apos;timeout2_promise&apos;);
+        resolve();
+    }).then(function() {
+        console.log(&apos;timeout2_then&apos;)
+    })
+})
+
+process.nextTick(function() {
+    console.log(&apos;glob2_nextTick&apos;);
+})
+
+new Promise(function(resolve) {
+    console.log(&apos;glob2_promise&apos;);
+    resolve();
+}).then(function() {
+    console.log(&apos;glob2_then&apos;)
+})
+
+setImmediate(function() {
+    console.log(&apos;immediate2&apos;);
+    process.nextTick(function() {
+        console.log(&apos;immediate2_nextTick&apos;);
+    })
+    new Promise(function(resolve) {
+        console.log(&apos;immediate2_promise&apos;);
+        resolve();
+    }).then(function() {
+        console.log(&apos;immediate2_then&apos;)
+    })
+})
+</code></pre><p>一、第一步、首先执行宏任务script。全局入栈。输出glob1</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d563d442f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p>
+<p>二、遇到setTimeout，作为任务源，将指定的任务加入宏任务队列</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d8926f643?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p>
+<p>三、遇到setImmediate，作为任务源，将指定的任务加入宏任务队列</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d56422aa4?imageslim" alt=""></p>
+<p>四、遇到process.nextTick，作为任务源，将指定的任务加入微任务队列</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d8eefb889?imageslim" alt=""></p>
+<p>五、遇到Promise的构造函数，进入执行栈，输出glob1_promise，Promise.then()作为任务源，将指定的任务加入微任务</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d565af410?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p>
+<p>六、遇到setTimeout，作为任务源，将指定的任务加入宏任务队列</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d6135495e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p>
+<p>七、遇到process.nextTick，作为任务源，将指定的任务加入微任务队列</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d61da8ad8?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p>
+<p>八、遇到Promise的构造函数，进入执行栈，输出glob2_promise，Promise.then()作为任务源，将指定的任务加入微任务</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d61c59908?imageslim" alt=""></p>
+<p>九、遇到setImmediate，作为任务源，将指定的任务加入宏任务队列</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d82ecee97?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p>
+<p>十、执行所有微任务队列，输出glob1_nextTick和glob2_nextTick、glob1_then、glob2_then</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d83193a9d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p>
+<blockquote>
+<p>事件机制其实就是异步任务的通知机制</p>
+</blockquote>
+
           
-一、为什么JS是单线程是由JS的用途决定的，其用途主要是与用户互动，以及操作DOM，如果不是单线程的话会带来很复杂的同步问题。比如：如果是多线程的话，一个用户新建一个DOM，另一个用户删除同一个DOM，该如何处理将变得非常麻烦。
-在html5中提出了web worker（todo 改天添加web 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/15/javascript/js事件循环/#more" rel="contents">
-              more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
-
-    
-
     
     
     
@@ -588,8 +632,6 @@ Nuxt.js是什么？Nuxt.js是一个基于vue.
 
   
   
-  
-
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -602,7 +644,7 @@ Nuxt.js是什么？Nuxt.js是一个基于vue.
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wiya">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -616,40 +658,25 @@ Nuxt.js是什么？Nuxt.js是一个基于vue.
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/11/我的第一篇文章/" itemprop="url">
-                  我的第一篇文章
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/05/11/我的第一篇文章/" itemprop="url">我的第一篇文章</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="Post created: 2018-05-11 15:44:29 / Updated at: 17:56:23" itemprop="dateCreated datePublished" datetime="2018-05-11T15:44:29+08:00">2018-05-11</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T15:44:29+08:00">
+                2018-05-11
+              </time>
             
 
             
-              
 
-              
             
           </span>
 
@@ -683,44 +710,186 @@ Nuxt.js是什么？Nuxt.js是一个基于vue.
       
         
           
-          段落第一自然段
-第二自然段
-注意：换行不是分段的标识，空行才是
-标题一级标题二级标题三级标题四级标题五级标题六级标题注：# 和后续内容之间应放置一个空格
-列表(1) 有序列表
+            <h3 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h3><p>第一自然段</p>
+<p>第二自然段</p>
+<p>注意：换行不是分段的标识，空行才是</p>
+<h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><p>注：# 和后续内容之间应放置一个空格</p>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>(1) 有序列表</p>
+<ol>
+<li><p>打开冰箱门</p>
+</li>
+<li><p>把大象放进冰箱</p>
+</li>
+<li><p>关上冰箱门</p>
+</li>
+</ol>
+<p>(2) 无序列表</p>
+<ul>
+<li><p>吃饭</p>
+</li>
+<li><p>睡觉</p>
+</li>
+<li><p>打豆豆</p>
+</li>
+</ul>
+<p>注意事项：</p>
+<pre><code>无序列表的项目符号可使用 *,+,- 效果是相同的。
+列表与后续内容之间需要一个空行隔开，即：列表是一个段落
+列表允许多层次嵌套
+可以在项目中包含段落，只需将段落前添加一个 tab 或 4 个空格
+</code></pre><h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3><p>语法：使用 3 个连续的 * 即可得到一个分割线</p>
+<hr>
+<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>语法：在行头加上 &gt; 即可。</p>
+<blockquote>
+<p>这里是一段引用</p>
+</blockquote>
+<pre><code>大于号 和 文字必须有一个空格
+可以在每行之前加 &gt; ，也可以在段落之前加 1 个 &gt;
+引用内部可以使用其他 Markdown 标记
+引用内部可以添加新的引用，只需再加一个大于号
+</code></pre><h3 id="行内标记"><a href="#行内标记" class="headerlink" title="行内标记"></a>行内标记</h3><p>(1) 强调文字</p>
+<pre><code>斜体
+语法：使用前后各 1 个 *(或_) 包含的文字是 斜体 文字
+*斜体*, _斜体_
 
-打开冰箱门
+粗体
+语法：使用前后各 2 个 *(或_) 包含的文字是 粗体 文字
+**粗体**，__粗体__
 
-把大象放进冰箱
+删除文字
+语法：使用前后各 2 个 ~ 包含的文字是删除文字
+~~删除~~
 
-关上冰箱门
+粗斜体
+语法：在**(或__)中嵌套_ (或*) 或 在_(或*)中嵌套**(或__)即可得到 粗斜体。
+_**粗斜体**_， *__粗斜体__*
+**_粗斜体_**， __*粗斜体*__
+</code></pre><p>(2) 图片与链接</p>
+<pre><code>1.图片：行内图片、引用图片
+    1&gt; 行内图片
+    图片和图片地址写在一起。
+    语法： ![图片标题](图片url)
+    ![史努比](http://upload-images.jianshu.io/upload_images/2779565-13b3439b110c16bf.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+</code></pre><p><img src="http://upload-images.jianshu.io/upload_images/2779565-13b3439b110c16bf.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="史努比"></p>
+<pre><code>2&gt; 引用图片
+图片和图片地址分开书写。
+语法：
+![图片标题][图片id]
+[图片id]:图片url
+![史努比][snoopy]
+[snoopy]: http://upload-images.jianshu.io/upload_images/2779565-13b3439b110c16bf.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240
+</code></pre><p><img src="http://upload-images.jianshu.io/upload_images/2779565-13b3439b110c16bf.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="史努比"></p>
+<pre><code>2. 链接：行内链接、链接引用、自动链接
+    1&gt; 行内链接
+    语法：[链接名称](链接地址 url &quot;链接title&quot;)
+    示例代码
+    [新浪](http://www.sina.com.cn &quot;新浪主页&quot;)
+</code></pre><p><a href="http://www.sina.com.cn" title="新浪主页" target="_blank" rel="noopener">新浪</a></p>
+<pre><code>注意事项
+双引号中的内容是链接的 title (目前汉字显示不正确)
 
+    2&gt; 链接引用
+    一种链接和地址分离的方式。
+    [链接名称][链接id]
+    [链接id]:链接 url 地址 &quot;链接 title&quot;
+    示例代码
+    根据 [雅虎][yahoo] 的调查，希拉里将当选；根据 [谷歌][google] 的调查，川普将当选。
 
-(2) 无序列表
+    [yahoo]: http://search.yahoo.com/ &quot;Yahoo Search&quot;
+    [google]: http://google.com/ &quot;Google&quot;
+</code></pre><p>根据 <a href="http://search.yahoo.com/" title="Yahoo Search" target="_blank" rel="noopener">雅虎</a> 的调查，希拉里将当选；根据 <a href="http://google.com/" title="Google" target="_blank" rel="noopener">谷歌</a> 的调查，川普将当选。</p>
+<pre><code>注意事项
+链接 id 可使用字母、数字、空格，但不区分大小写
 
-吃饭
+3.脚注 -- 为名词提供注释，注释将显示在文章末尾。
+语法：
+待解释文字[^脚注 id]
+[^脚注 id]:注释内容
+示例代码
+Hello程序[^hello]
+[^hello]:即：Hello, world 程序
+</code></pre><p>Hello程序[^hello]<br>[^hello]:即：Hello, world 程序</p>
+<pre><code>注意事项
+脚注 id 必须唯一
+无论脚注 id 如何起名，显示时一律标为数字，并且按出现顺序排列
+</code></pre><h3 id="双标记"><a href="#双标记" class="headerlink" title="双标记"></a>双标记</h3><p>既可作为区块标记又可作为行内标记的标记。</p>
+<ol>
+<li><p>代码块</p>
+<p> 1) 行内代码块<br> 语法：使用两个 ` 将代码包含起来</p>
+<p> 示例代码</p>
+<p> 在 Java 输出 Hello, world ：<code>System.out.print(&quot;Hello, World!&quot;);</code></p>
+</li>
+</ol>
+<p>在 Java 输出 Hello, world ：<code>System.out.print(&quot;Hello, World!&quot;);</code></p>
+<pre><code>2) 多行代码块
+语法：只需要每行都缩进 4 个空格即可，或者使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    示例代码 1 (行前4个空格)</span><br><span class="line"></span><br><span class="line">    // JQuery 的 Hello, world</span><br><span class="line">    $(function()&#123;</span><br><span class="line">    alert(&quot;Hello, world!&quot;)</span><br><span class="line">    &#125;);</span><br><span class="line">效果(行前4个空格)</span><br><span class="line"></span><br><span class="line">// JQuery 的 Hello, world</span><br><span class="line">$(function()&#123;</span><br><span class="line">    alert(&quot;Hello, world!&quot;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">示例代码 2 (```)</span><br></pre></td></tr></table></figure>
+</code></pre><p>// JQuery 的 Hello, world<br>$(function(){<br>alert(“Hello, world!”)<br>});<br><code>`</code></p>
+<p>效果 (<code>`</code>)</p>
+<p>// JQuery 的 Hello, world<br>$(function(){<br>    alert(“Hello, world!”)<br>});<br>    注意事项：</p>
+<pre><code>在代码区块内部，&quot;, &lt;&gt;,&amp; 将会自动转换为转义字符
 
-睡觉
+在代码区块内部，Markdown 标记将保持原样，即：星号(*)就是星号(*)，不被解释为特殊标记，这样就可以不能继续使用 Markdown 语法了
+</code></pre><h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><p>语法：</p>
+<p>第一行为表头，第二行分隔表头和主体部分，第三行开始每一行为一个表格行。</p>
+<p>列于列之间用管道符 | 隔开。表格每一行两边的管道符可省略。</p>
+<p>第二行还可以为不同的列指定对齐方向。标题默认为居中对齐，内容默认为左对齐；在 - 左边加上 : 就是左对齐；在 - 右边加上 : 就是右对齐；在 - 两边都加上 : 就是居中对齐。</p>
+<p>示例代码</p>
+<pre><code>姓名|语文成绩|数学成绩|总成绩
+---|:---|:---:|---:
+喜羊羊|100|120|220
+</code></pre><table>
+<thead>
+<tr>
+<th>姓名</th>
+<th style="text-align:left">语文成绩</th>
+<th style="text-align:center">数学成绩</th>
+<th style="text-align:right">总成绩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>喜羊羊</td>
+<td style="text-align:left">100</td>
+<td style="text-align:center">120</td>
+<td style="text-align:right">220</td>
+</tr>
+</tbody>
+</table>
+<h3 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h3><ol>
+<li>Markdown 与 HTML 的关系</li>
+</ol>
+<p>HTML 是一种发布的格式，Markdown 是一种书写的格式。</p>
+<p>Markdown 的格式语法只涵盖纯文本可以涵盖的范围。</p>
+<p>在 Markdown 中可直接使用 HTML 标签，但需要注意</p>
+<p>对于 HTML 区块元素――如 div、table、pre、p 等标签，必须在前后加上空行与其它内容区隔开，还要求它们的开始标签与结尾标签不能用制表符(tab)或空格来缩进</p>
+<p>HTML 的行内标签——如 span、cite、del 可以在 Markdown 的段落、列表或是标题里随意使用。</p>
+<p>在 HTML 的区块标签中的 Markdown 标签是没有效果的</p>
+<ol start="2">
+<li>特殊字符的自动转换</li>
+</ol>
+<p>在 HTML 文件中，有两个字符需要特殊处理： &lt; 和 &amp;，必须使用转义字符：&amp; lt ; 和 &amp; amp ;</p>
+<p>Markdown 中，你可以自由的书写 &lt; 和 &amp;，编辑器会智能的进行判断：当这些符号用于 HTML 标签中，他们将保留原型；当他们单独使用时，将会转换为字符实体。</p>
+<p>在代码块中，它们将统统被转换为字符实体，即：原样显示。</p>
+<ol start="3">
+<li>Markdown 中的转义字符</li>
+</ol>
+<p>Markdown 中，如需显示有特定意义的符号，如：*,# 等，可使用 反斜杠 \ 进行转义。可对如下字符进行转义：</p>
+<p>*</p>
+<p>`</p>
+<p>*<br>_</p>
+<p>{}</p>
+<p>()</p>
+<p>#</p>
+<p>+</p>
+<p>-</p>
+<p>.</p>
+<p>!</p>
+<p>作者：白老师课堂<br>链接：<a href="https://www.jianshu.com/p/4e3cae082b47" target="_blank" rel="noopener">https://www.jianshu.com/p/4e3cae082b47</a><br>來源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
 
-打豆豆
-
-
-注意事项：
-无序列表的项目
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/11/我的第一篇文章/#more" rel="contents">
-              more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
-
-    
-
     
     
     
@@ -759,8 +928,6 @@ Nuxt.js是什么？Nuxt.js是一个基于vue.
   
   
 
-  
-
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -771,7 +938,7 @@ Nuxt.js是什么？Nuxt.js是一个基于vue.
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wiya">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -785,34 +952,23 @@ Nuxt.js是什么？Nuxt.js是一个基于vue.
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/11/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/05/11/hello-world/" itemprop="url">Hello World</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T15:42:04+08:00">
+                2018-05-11
+              </time>
+            
 
-              
-                
-              
-
-              <time title="Post created: 2018-05-11 15:42:04" itemprop="dateCreated datePublished" datetime="2018-05-11T15:42:04+08:00">2018-05-11</time>
             
 
             
@@ -848,21 +1004,20 @@ Nuxt.js是什么？Nuxt.js是一个基于vue.
       
         
           
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/11/hello-world/#more" rel="contents">
-              more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+          
         
       
     </div>
-
-    
-
     
     
     
@@ -901,6 +1056,9 @@ Nuxt.js是什么？Nuxt.js是一个基于vue.
           </div>
           
 
+
+          
+
         </div>
         
           
@@ -921,84 +1079,57 @@ Nuxt.js是什么？Nuxt.js是一个基于vue.
 
       
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.jpg"
-                alt="Wiya" />
-            
-              <p class="site-author-name" itemprop="name">Wiya</p>
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Wiya" />
+          <p class="site-author-name" itemprop="name">Wiya</p>
+           
               <p class="site-description motion-element" itemprop="description"></p>
-          </div>
+          
+        </div>
+        <nav class="site-state motion-element">
 
           
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives">
-                
-                    <span class="site-state-item-count">4</span>
-                    <span class="site-state-item-name">Artikel</span>
-                  </a>
-                </div>
-              
-
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">3</span>
-                    <span class="site-state-item-name">Tags</span>
-                  
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/wyy511" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="mailto:971731208@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  
-                </span>
-              
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
             </div>
           
 
           
-          
-
-          
-          
 
           
             
-          
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
           
 
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
         </div>
+
+        
+        
+
+        
+        
+
+        
+
+
       </section>
 
       
@@ -1015,41 +1146,30 @@ Nuxt.js是什么？Nuxt.js是一个基于vue.
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Wiya</span>
-
-  
-
-  
 </div>
 
 
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
 
-
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.2.0</div>
-
-
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
 
 
         
-
-
-
-
-
-
-
 
         
       </div>
@@ -1060,8 +1180,6 @@ Nuxt.js是什么？Nuxt.js是一个基于vue.
         <i class="fa fa-arrow-up"></i>
         
       </div>
-    
-
     
 
   </div>
@@ -1082,11 +1200,6 @@ Nuxt.js是什么？Nuxt.js是一个基于vue.
 
 
 
-
-
-
-
-
   
 
 
@@ -1100,57 +1213,55 @@ Nuxt.js是什么？Nuxt.js是一个基于vue.
 
 
 
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
   
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
   
 
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.2.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.2.0"></script>
-
-
+  
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
   
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 
   
+
+
+  
+
 
 
 
@@ -1173,25 +1284,12 @@ Nuxt.js是什么？Nuxt.js是一个基于vue.
 
 
 
-
-
-
-
   
 
 
 
 
 
-  
-
-  
-
-  
-
-  
-
-  
   
 
   
