@@ -1930,7 +1930,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #82a6b3;
+  background: #087eff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3100,6 +3100,7 @@ img:hover {
 }
 .links-of-blogroll-title {
   margin-top: 0;
+  text-align: center;
 }
 .links-of-blogroll-item {
   padding: 0;
@@ -3155,4 +3156,10 @@ img:hover {
 }
 .footer {
   bottom: auto;
+}
+* {
+  cursor: url("/images/sugar.ico"), auto !important;
+}
+:active {
+  cursor: url("/images/sugar.ico"), auto !important;
 }
