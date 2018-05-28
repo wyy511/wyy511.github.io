@@ -89,6 +89,31 @@
   </entry>
   
   <entry>
+    <title>node.js第一个应用</title>
+    <link href="http://yoursite.com/2018/05/15/node/node.js%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BA%94%E7%94%A8/"/>
+    <id>http://yoursite.com/2018/05/15/node/node.js的第一个应用/</id>
+    <published>2018-05-15T08:10:10.000Z</published>
+    <updated>2018-05-28T09:01:28.494Z</updated>
+    
+    <content type="html"><![CDATA[<p><br></p><h4 id="什么是node-js？"><a href="#什么是node-js？" class="headerlink" title="什么是node.js？"></a>什么是node.js？</h4><blockquote><p>简单的说node.js就是运行在服务端的JavaScript<br>  node.js是一个基于chrome javascript 运行时建立的一个平台<br>  node.js是一个事件驱动I/O服务器JavaScript环境，基于Google的v8殷勤，v8殷勤执行JavaScript的速度非常快，性能非常好</p></blockquote><h4 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h4><blockquote><p>node -v<br>  注意：不同版本间是有差异性的</p></blockquote><h4 id="第一个node-js程序：-hello-world"><a href="#第一个node-js程序：-hello-world" class="headerlink" title="第一个node.js程序： hello world!"></a>第一个node.js程序： hello world!</h4><blockquote><p>脚本模式<br>  console.log(“hello world!”);<br>  保存该文件，文件名为helloworld.js，并通过node命令来执行 node helloworld.js<br>  程序执行结果为 hello world!</p></blockquote><blockquote><p>交互模式<br>  打开终端，输入node进入命令交互模式，可以输入一条代码语句后立即执行并显示结果<br>  node<br>console.log(‘hello world!’)<br>  hello world!</p></blockquote><h4 id="创建node的第一个应用"><a href="#创建node的第一个应用" class="headerlink" title="创建node的第一个应用"></a>创建node的第一个应用</h4><blockquote><p>如果我们使用PHP来编写后端的代码时，需要Apache或者Nginx的http服务器，并配置mod_php5模块和php_cgi<br>  从这个角度看，整个接受http请求并提供web页面的需求根本不需要PHP来处理<br>  不过对node.js来说，概念就完全不一样了，使用node.js时，我们不仅仅在实现一个应用，同事还实现了整个http服务器<br>  事实上，我们的web应用以及对应的web服务器基本上是一致的<br>  在我们创建node的第一个程序“hello world!”应用前，让我们先了解下node.js应用由那几个部分组成</p></blockquote><p>  1.引入required模块：我们可以使用require指令来载入node.js模块<br>  2.穿件服务器：服务器可以监听客户端的请求，类似于Apache、Nginx等http服务器<br>  3.接受请求与响应请求：服务器很容易创建，客户端可以使用浏览器或终端发送http请求，服务器接受请求后返回响应数据</p><h4 id="创建node-js应用"><a href="#创建node-js应用" class="headerlink" title="创建node.js应用"></a>创建node.js应用</h4><blockquote><p>步骤一：引入required模块</p></blockquote><p>我们使用require指令来载入http模块，并将实例化的http赋值给变量http</p><blockquote><p>var http = require(‘http’)</p></blockquote><blockquote><p>步骤二：创建服务器</p></blockquote><p>接下来我们使用http.createServer()方法创建服务器，并使用listen方法绑定8888端口。函数通过request、response参数来接收数据和响应数据<br>实例如下，在你的项目的根目录下创建一个叫server.js的文件，并写入以下代码</p><pre><code>var http = require(&apos;http);http.createServer(function (request, response) {  // 发送http头部  // http状态值：200 : ok  // 内容类型：text/plain  response.writeHead(200, {    &apos;Content-Type&apos;: &apos;text/plain&apos;  })  // 发送响应数据“hello world”}).listen(8888)// 终端打印如下结果console.log(&apos;Server running at http://127.0.0.1:8888/&apos;)</code></pre><p>以上代码我们完成了一个可以工作的http服务器<br>使用node命令执行以上代码</p><blockquote><p>node server.js</p></blockquote><p>结果：Server running at <a href="http://127.0.0.1:8888/" target="_blank" rel="noopener">http://127.0.0.1:8888/</a></p><blockquote><p>分析：</p></blockquote><ul><li><p>第一行请求（require）node.js自带的http模块，并把它赋值给http变量</p></li><li><p>接下来我们调用http模块提供的函数：createServer，这个函数会返回一个对象，对象有个叫listen的方法，这个方法有个数值参数，指定这个http服务器监听的端口号</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h4 id=&quot;什么是node-js？&quot;&gt;&lt;a href=&quot;#什么是node-js？&quot; class=&quot;headerlink&quot; title=&quot;什么是node.js？&quot;&gt;&lt;/a&gt;什么是node.js？&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;简单的说node.
+      
+    
+    </summary>
+    
+    
+      <category term="node.js学习" scheme="http://yoursite.com/tags/node-js%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>我的第一篇文章</title>
     <link href="http://yoursite.com/2018/05/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
     <id>http://yoursite.com/2018/05/11/我的第一篇文章/</id>
