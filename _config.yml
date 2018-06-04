@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
+title: Wiya's blog
+subtitle: Welcome to Wiya's blog.
 description:
 keywords:
-author: John Doe
-language:
+author: Wiya
+language: zh-Hans
 timezone:
 
 # URL
@@ -35,7 +35,7 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -70,10 +70,23 @@ time_format: HH:mm:ss
 per_page: 10
 pagination_dir: page
 
+# 新增搜索
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
+# 新增背景音乐
+bg_music: 
+  url: https://pic.ibaotu.com/00/38/84/62P888piC7ej.mp3
+
 # Extensions
 ## Plugins: https://hexo.io/plugins/
+plugins: hexo-generate-feed
+
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -81,3 +94,4 @@ deploy:
   type: git
   repo: git@github.com:wyy511/wyy511.github.io.git
   branch: master
+
