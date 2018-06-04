@@ -1,0 +1,3125 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端js学习," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Wiya's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="本文转载过来作者：cd-dongzi链接：https://juejin.im/post/5a7523af5188257a7d6e028e来源：掘金 在工作中经常用到这些工具类的封装  Javascript  type 类型判断isString (o) { //是否字符串     return Object.prototype.toString.call(o).slice(8, -1) === &amp;">
+<meta name="keywords" content="前端js学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用工具类的封装（javascript）">
+<meta property="og:url" content="http://yoursite.com/2018/05/23/javascript/js工具类封装/index.html">
+<meta property="og:site_name" content="Wiya&#39;s blog">
+<meta property="og:description" content="本文转载过来作者：cd-dongzi链接：https://juejin.im/post/5a7523af5188257a7d6e028e来源：掘金 在工作中经常用到这些工具类的封装  Javascript  type 类型判断isString (o) { //是否字符串     return Object.prototype.toString.call(o).slice(8, -1) === &amp;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-23T09:10:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用工具类的封装（javascript）">
+<meta name="twitter:description" content="本文转载过来作者：cd-dongzi链接：https://juejin.im/post/5a7523af5188257a7d6e028e来源：掘金 在工作中经常用到这些工具类的封装  Javascript  type 类型判断isString (o) { //是否字符串     return Object.prototype.toString.call(o).slice(8, -1) === &amp;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/23/javascript/js工具类封装/"/>
+
+
+
+
+
+  <title>常用工具类的封装（javascript） | Wiya's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <audio autoplay="autoplay" loop="loop">
+    <source src="https://pic.ibaotu.com/00/38/84/62P888piC7ej.mp3" type="audio/mp3">
+  </audio>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+    <a href="https://github.com/wyy511"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Wiya's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Welcome to Wiya's blog.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/23/javascript/js工具类封装/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wiya">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wiya's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">常用工具类的封装（javascript）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-23T16:26:10+08:00">
+                2018-05-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><br></p>
+<p>本文转载过来<br>作者：cd-dongzi<br>链接：<a href="https://juejin.im/post/5a7523af5188257a7d6e028e" target="_blank" rel="noopener">https://juejin.im/post/5a7523af5188257a7d6e028e</a><br>来源：掘金</p>
+<p>在工作中经常用到这些工具类的封装</p>
+<blockquote>
+<p>Javascript</p>
+</blockquote>
+<h4 id="type-类型判断"><a href="#type-类型判断" class="headerlink" title="type 类型判断"></a>type 类型判断</h4><pre><code>isString (o) { //是否字符串
+    return Object.prototype.toString.call(o).slice(8, -1) === &apos;String&apos;
+}
+
+isNumber (o) { //是否数字
+    return Object.prototype.toString.call(o).slice(8, -1) === &apos;Number&apos;
+}
+
+isBoolean (o) { //是否boolean
+    return Object.prototype.toString.call(o).slice(8, -1) === &apos;Boolean&apos;
+}
+
+isFunction (o) { //是否函数
+    return Object.prototype.toString.call(o).slice(8, -1) === &apos;Function&apos;
+}
+
+isNull (o) { //是否为null
+    return Object.prototype.toString.call(o).slice(8, -1) === &apos;Null&apos;
+}
+
+isUndefined (o) { //是否undefined
+    return Object.prototype.toString.call(o).slice(8, -1) === &apos;Undefined&apos;
+}
+
+isObj (o) { //是否对象
+    return Object.prototype.toString.call(o).slice(8, -1) === &apos;Object&apos;
+}
+
+isArray (o) { //是否数组
+    return Object.prototype.toString.call(o).slice(8, -1) === &apos;Array&apos;
+}
+
+isDate (o) { //是否时间
+    return Object.prototype.toString.call(o).slice(8, -1) === &apos;Date&apos;
+}
+
+isRegExp (o) { //是否正则
+    return Object.prototype.toString.call(o).slice(8, -1) === &apos;RegExp&apos;
+}
+
+isError (o) { //是否错误对象
+    return Object.prototype.toString.call(o).slice(8, -1) === &apos;Error&apos;
+}
+
+isSymbol (o) { //是否Symbol函数
+    return Object.prototype.toString.call(o).slice(8, -1) === &apos;Symbol&apos;
+}
+
+isPromise (o) { //是否Promise对象
+    return Object.prototype.toString.call(o).slice(8, -1) === &apos;Promise&apos;
+}
+
+isSet (o) { //是否Set对象
+    return Object.prototype.toString.call(o).slice(8, -1) === &apos;Set&apos;
+}
+
+
+
+isFalse (o) {
+    if (!o || o === &apos;null&apos; || o === &apos;undefined&apos; || o === &apos;false&apos; || o === &apos;NaN&apos;) return true
+        return false
+}
+
+isTrue (o) {
+    return !this.isFalse(o)
+}
+
+isIos () {
+    var u = navigator.userAgent;
+    if (u.indexOf(&apos;Android&apos;) &gt; -1 || u.indexOf(&apos;Linux&apos;) &gt; -1) {//安卓手机
+        // return &quot;Android&quot;;
+        return false
+    } else if (u.indexOf(&apos;iPhone&apos;) &gt; -1) {//苹果手机
+        // return &quot;iPhone&quot;;
+        return true
+    } else if (u.indexOf(&apos;iPad&apos;) &gt; -1) {//iPad
+        // return &quot;iPad&quot;;
+        return false
+    } else if (u.indexOf(&apos;Windows Phone&apos;) &gt; -1) {//winphone手机
+        // return &quot;Windows Phone&quot;;
+        return false
+    }else{
+        return false
+    }
+}
+
+isPC () { //是否为PC端
+    var userAgentInfo = navigator.userAgent;
+    var Agents = [&quot;Android&quot;, &quot;iPhone&quot;,
+                &quot;SymbianOS&quot;, &quot;Windows Phone&quot;,
+                &quot;iPad&quot;, &quot;iPod&quot;];
+    var flag = true;
+    for (var v = 0; v &lt; Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) &gt; 0) {
+            flag = false;
+            break;
+        }
+    }
+    return flag;
+}
+
+browserType(){
+    var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+    var isOpera = userAgent.indexOf(&quot;Opera&quot;) &gt; -1; //判断是否Opera浏览器
+    var isIE = userAgent.indexOf(&quot;compatible&quot;) &gt; -1 &amp;&amp; userAgent.indexOf(&quot;MSIE&quot;) &gt; -1 &amp;&amp; !isOpera; //判断是否IE浏览器
+    var isIE11 = userAgent.indexOf(&apos;Trident&apos;) &gt; -1 &amp;&amp; userAgent.indexOf(&quot;rv:11.0&quot;) &gt; -1;
+    var isEdge = userAgent.indexOf(&quot;Edge&quot;) &gt; -1 &amp;&amp; !isIE; //判断是否IE的Edge浏览器  
+    var isFF = userAgent.indexOf(&quot;Firefox&quot;) &gt; -1; //判断是否Firefox浏览器
+    var isSafari = userAgent.indexOf(&quot;Safari&quot;) &gt; -1 &amp;&amp; userAgent.indexOf(&quot;Chrome&quot;) == -1; //判断是否Safari浏览器
+    var isChrome = userAgent.indexOf(&quot;Chrome&quot;) &gt; -1 &amp;&amp; userAgent.indexOf(&quot;Safari&quot;) &gt; -1; //判断Chrome浏览器
+
+    if (isIE) {
+        var reIE = new RegExp(&quot;MSIE (\\d+\\.\\d+);&quot;);
+        reIE.test(userAgent);
+        var fIEVersion = parseFloat(RegExp[&quot;$1&quot;]);
+        if(fIEVersion == 7) return &quot;IE7&quot;
+        else if(fIEVersion == 8) return &quot;IE8&quot;;
+        else if(fIEVersion == 9) return &quot;IE9&quot;;
+        else if(fIEVersion == 10) return &quot;IE10&quot;;
+        else return &quot;IE7以下&quot;//IE版本过低
+    }
+    if (isIE11) return &apos;IE11&apos;;
+    if (isEdge) return &quot;Edge&quot;;
+    if (isFF) return &quot;FF&quot;;
+    if (isOpera) return &quot;Opera&quot;;
+    if (isSafari) return &quot;Safari&quot;;
+    if (isChrome) return &quot;Chrome&quot;;
+}
+
+checkStr (str, type) {
+    switch (type) {
+        case &apos;phone&apos;:   //手机号码
+            return /^1[3|4|5|6|7|8|9][0-9]{9}$/.test(str);
+        case &apos;tel&apos;:     //座机
+            return /^(0\d{2,3}-\d{7,8})(-\d{1,4})?$/.test(str);
+        case &apos;card&apos;:    //身份证
+            return /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(str);
+        case &apos;pwd&apos;:     //密码以字母开头，长度在6~18之间，只能包含字母、数字和下划线
+            return /^[a-zA-Z]\w{5,17}$/.test(str)
+        case &apos;postal&apos;:  //邮政编码
+            return /[1-9]\d{5}(?!\d)/.test(str);
+        case &apos;QQ&apos;:      //QQ号
+            return /^[1-9][0-9]{4,9}$/.test(str);
+        case &apos;email&apos;:   //邮箱
+            return /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/.test(str);
+        case &apos;money&apos;:   //金额(小数点2位)
+            return /^\d*(?:\.\d{0,2})?$/.test(str);
+        case &apos;URL&apos;:     //网址
+            return /(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?/.test(str)
+        case &apos;IP&apos;:      //IP
+            return /((?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.){3}(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d))/.test(str);
+        case &apos;date&apos;:    //日期时间
+            return /^(\d{4})\-(\d{2})\-(\d{2}) (\d{2})(?:\:\d{2}|:(\d{2}):(\d{2}))$/.test(str) || /^(\d{4})\-(\d{2})\-(\d{2})$/.test(str)
+        case &apos;number&apos;:  //数字
+            return /^[0-9]$/.test(str);
+        case &apos;english&apos;: //英文
+            return /^[a-zA-Z]+$/.test(str);
+        case &apos;chinese&apos;: //中文
+            return /^[\u4E00-\u9FA5]+$/.test(str);
+        case &apos;lower&apos;:   //小写
+            return /^[a-z]+$/.test(str);
+        case &apos;upper&apos;:   //大写
+            return /^[A-Z]+$/.test(str);
+        case &apos;HTML&apos;:    //HTML标记
+            return /&lt;(&quot;[^&quot;]*&quot;|&apos;[^&apos;]*&apos;|[^&apos;&quot;&gt;])*&gt;/.test(str);
+        default:
+            return true;
+    }
+
+    // 严格的身份证校验
+    isCardID(sId) {
+        if (!/(^\d{15}$)|(^\d{17}(\d|X|x)$)/.test(sId)) {
+            alert(&apos;你输入的身份证长度或格式错误&apos;)
+            return false
+        }
+        //身份证城市
+        var aCity={11:&quot;北京&quot;,12:&quot;天津&quot;,13:&quot;河北&quot;,14:&quot;山西&quot;,15:&quot;内蒙古&quot;,21:&quot;辽宁&quot;,22:&quot;吉林&quot;,23:&quot;黑龙江&quot;,31:&quot;上海&quot;,32:&quot;江苏&quot;,33:&quot;浙江&quot;,34:&quot;安徽&quot;,35:&quot;福建&quot;,36:&quot;江西&quot;,37:&quot;山东&quot;,41:&quot;河南&quot;,42:&quot;湖北&quot;,43:&quot;湖南&quot;,44:&quot;广东&quot;,45:&quot;广西&quot;,46:&quot;海南&quot;,50:&quot;重庆&quot;,51:&quot;四川&quot;,52:&quot;贵州&quot;,53:&quot;云南&quot;,54:&quot;西藏&quot;,61:&quot;陕西&quot;,62:&quot;甘肃&quot;,63:&quot;青海&quot;,64:&quot;宁夏&quot;,65:&quot;新疆&quot;,71:&quot;台湾&quot;,81:&quot;香港&quot;,82:&quot;澳门&quot;,91:&quot;国外&quot;};
+        if(!aCity[parseInt(sId.substr(0,2))]) { 
+            alert(&apos;你的身份证地区非法&apos;)
+            return false
+        }
+
+        // 出生日期验证
+        var sBirthday=(sId.substr(6,4)+&quot;-&quot;+Number(sId.substr(10,2))+&quot;-&quot;+Number(sId.substr(12,2))).replace(/-/g,&quot;/&quot;),
+            d = new Date(sBirthday)
+        if(sBirthday != (d.getFullYear()+&quot;/&quot;+ (d.getMonth()+1) + &quot;/&quot; + d.getDate())) {
+            alert(&apos;身份证上的出生日期非法&apos;)
+            return false
+        }
+
+        // 身份证号码校验
+        var sum = 0,
+            weights =  [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2],
+            codes = &quot;10X98765432&quot;
+        for (var i = 0; i &lt; sId.length - 1; i++) {
+            sum += sId[i] * weights[i];
+        }
+        var last = codes[sum % 11]; //计算出来的最后一位身份证号码
+        if (sId[sId.length-1] != last) { 
+            alert(&apos;你输入的身份证号非法&apos;)
+            return false
+        }
+
+        return true
+    }
+}
+</code></pre><h4 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h4><p>/**</p>
+<pre><code>* 格式化时间
+* 
+* @param  {time} 时间
+* @param  {cFormat} 格式
+* @return {String} 字符串
+*
+* @example formatTime(&apos;2018-1-29&apos;, &apos;{y}/{m}/{d} {h}:{i}:{s}&apos;) // -&gt; 2018/01/29 00:00:00
+</code></pre><p>*/</p>
+<pre><code>formatTime(time, cFormat) {
+    if (arguments.length === 0) return null
+    if ((time + &apos;&apos;).length === 10) {
+        time = +time * 1000
+    }
+
+    var format = cFormat || &apos;{y}-{m}-{d} {h}:{i}:{s}&apos;, date
+    if (typeof time === &apos;object&apos;) {
+        date = time
+    } else {
+        date = new Date(time)
+    }
+
+    var formatObj = {
+        y: date.getFullYear(),
+        m: date.getMonth() + 1,
+        d: date.getDate(),
+        h: date.getHours(),
+        i: date.getMinutes(),
+        s: date.getSeconds(),
+        a: date.getDay()
+    }
+    var time_str = format.replace(/{(y|m|d|h|i|s|a)+}/g, (result, key) =&gt; {
+        var value = formatObj[key]
+        if (key === &apos;a&apos;) return [&apos;一&apos;, &apos;二&apos;, &apos;三&apos;, &apos;四&apos;, &apos;五&apos;, &apos;六&apos;, &apos;日&apos;][value - 1]
+        if (result.length &gt; 0 &amp;&amp; value &lt; 10) {
+            value = &apos;0&apos; + value
+        }
+        return value || 0
+    })
+    return time_str
+}
+</code></pre><p>/**</p>
+<pre><code>* 返回指定长度的月份集合
+* 
+* @param  {time} 时间
+* @param  {len} 长度
+* @param  {direction} 方向：  1: 前几个月;  2: 后几个月;  3:前后几个月  默认 3
+* @return {Array} 数组
+* 
+* @example   getMonths(&apos;2018-1-29&apos;, 6, 1)  // -&gt;  [&quot;2018-1&quot;, &quot;2017-12&quot;, &quot;2017-11&quot;, &quot;2017-10&quot;, &quot;2017-9&quot;, &quot;2017-8&quot;, &quot;2017-7&quot;]
+</code></pre><p>*/</p>
+<pre><code>getMonths(time, len, direction) {
+    var mm = new Date(time).getMonth(),
+        yy = new Date(time).getFullYear(),
+        direction = isNaN(direction) ? 3 : direction,
+        index = mm;
+    var cutMonth = function(index) {
+        if ( index &lt;= len &amp;&amp; index &gt;= -len) {
+            return direction === 1 ? formatPre(index).concat(cutMonth(++index)):
+                direction === 2 ? formatNext(index).concat(cutMonth(++index)):formatCurr(index).concat(cutMonth(++index))
+        }
+        return []
+    }
+    var formatNext = function(i) {
+        var y = Math.floor(i/12),
+            m = i%12
+        return [yy+y + &apos;-&apos; + (m+1)]
+    }
+    var formatPre = function(i) {
+        var y = Math.ceil(i/12),
+            m = i%12
+        m = m===0 ? 12 : m
+        return [yy-y + &apos;-&apos; + (13 - m)]
+    }
+    var formatCurr = function(i) {
+        var y = Math.floor(i/12),
+            yNext = Math.ceil(i/12),
+            m = i%12,
+            mNext = m===0 ? 12 : m
+        return [yy-yNext + &apos;-&apos; + (13 - mNext),yy+y + &apos;-&apos; + (m+1)]
+    }
+    // 数组去重
+    var unique = function(arr) {
+        if ( Array.hasOwnProperty(&apos;from&apos;) ) {
+            return Array.from(new Set(arr));
+        }else{
+            var n = {},r=[]; 
+            for(var i = 0; i &lt; arr.length; i++){
+                if (!n[arr[i]]){
+                    n[arr[i]] = true; 
+                    r.push(arr[i]);
+                }
+            }
+            return r;
+        }
+    }
+    return direction !== 3 ? cutMonth(index) : unique(cutMonth(index).sort(function(t1, t2){
+        return new Date(t1).getTime() - new Date(t2).getTime()
+    }))
+}
+</code></pre><p>/**</p>
+<pre><code>* 返回指定长度的天数集合
+* 
+* @param  {time} 时间
+* @param  {len} 长度
+* @param  {direction} 方向： 1: 前几天;  2: 后几天;  3:前后几天  默认 3
+* @return {Array} 数组
+*
+* @example date.getDays(&apos;2018-1-29&apos;, 6) // -&gt; [&quot;2018-1-26&quot;, &quot;2018-1-27&quot;, &quot;2018-1-28&quot;, &quot;2018-1-29&quot;, &quot;2018-1-30&quot;, &quot;2018-1-31&quot;, &quot;2018-2-1&quot;]
+</code></pre><p>*/</p>
+<pre><code>getDays(time, len, diretion) {
+    var tt = new Date(time)
+    var getDay = function(day) {
+        var t = new Date(time)
+        t.setDate(t.getDate() + day)
+        var m = t.getMonth()+1
+        return t.getFullYear()+&apos;-&apos;+m+&apos;-&apos;+t.getDate()
+    }
+    var arr = []
+    if (diretion === 1) {
+        for (var i = 1; i &lt;= len; i++) {
+            arr.unshift(getDay(-i))
+        }
+    }else if(diretion === 2) {
+        for (var i = 1; i &lt;= len; i++) {
+            arr.push(getDay(i))
+        }
+    }else {
+        for (var i = 1; i &lt;= len; i++) {
+            arr.unshift(getDay(-i))
+        }
+        arr.push(tt.getFullYear()+&apos;-&apos;+(tt.getMonth()+1)+&apos;-&apos;+tt.getDate())
+        for (var i = 1; i &lt;= len; i++) {
+            arr.push(getDay(i))
+        }
+    }
+    return diretion === 1 ? arr.concat([tt.getFullYear()+&apos;-&apos;+(tt.getMonth()+1)+&apos;-&apos;+tt.getDate()]) : 
+        diretion === 2 ? [tt.getFullYear()+&apos;-&apos;+(tt.getMonth()+1)+&apos;-&apos;+tt.getDate()].concat(arr) : arr
+}
+</code></pre><p>/**</p>
+<pre><code>* @param  {s} 秒数
+* @return {String} 字符串 
+*
+* @example formatHMS(3610) // -&gt; 1h0m10s
+</code></pre><p>*/</p>
+<pre><code>formatHMS (s) {
+    var str = &apos;&apos;
+    if (s &gt; 3600) {
+        str = Math.floor(s/3600)+&apos;h&apos;+Math.floor(s%3600/60)+&apos;m&apos;+s%60+&apos;s&apos;
+    }else if(s &gt; 60) {
+        str = Math.floor(s/60)+&apos;m&apos;+s%60+&apos;s&apos;
+    }else{
+        str = s%60+&apos;s&apos;
+    }
+    return str
+}
+
+/*获取某月有多少天*/
+getMonthOfDay (time) {
+    var date = new Date(time)
+    var year = date.getFullYear()
+    var mouth = date.getMonth() + 1
+    var days
+
+    //当月份为二月时，根据闰年还是非闰年判断天数
+    if (mouth == 2) {
+        days = (year%4==0 &amp;&amp; year%100==0 &amp;&amp; year%400==0) || (year%4==0 &amp;&amp; year%100!=0) ? 28 : 29
+    } else if (mouth == 1 || mouth == 3 || mouth == 5 || mouth == 7 || mouth == 8 || mouth == 10 || mouth == 12) {
+        //月份为：1,3,5,7,8,10,12 时，为大月.则天数为31；
+        days = 31
+    } else {
+        //其他月份，天数为：30.
+        days = 30
+    }
+    return days
+}
+
+/*获取某年有多少天*/
+getYearOfDay (time) {
+    var firstDayYear = this.getFirstDayOfYear(time);
+    var lastDayYear = this.getLastDayOfYear(time);
+    var numSecond = (new Date(lastDayYear).getTime() - new Date(firstDayYear).getTime())/1000;
+    return Math.ceil(numSecond/(24*3600));
+}
+
+/*获取某年的第一天*/
+getFirstDayOfYear (time) {
+    var year = new Date(time).getFullYear();
+    return year + &quot;-01-01 00:00:00&quot;;
+}
+
+/*获取某年最后一天*/
+getLastDayOfYear (time) {
+    var year = new Date(time).getFullYear();
+    var dateString = year + &quot;-12-01 00:00:00&quot;;
+    var endDay = this.getMonthOfDay(dateString);
+    return year + &quot;-12-&quot; + endDay + &quot; 23:59:59&quot;;
+}
+
+/*获取某个日期是当年中的第几天*/
+getDayOfYear (time) {
+    var firstDayYear = this.getFirstDayOfYear(time);
+    var numSecond = (new Date(time).getTime() - new Date(firstDayYear).getTime())/1000;
+    return Math.ceil(numSecond/(24*3600));
+}
+
+/*获取某个日期在这一年的第几周*/
+getDayOfYearWeek (time) {
+    var numdays = this.getDayOfYear(time);
+    return Math.ceil(numdays / 7);
+}
+</code></pre><h4 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h4><pre><code>/*判断一个元素是否在数组中*/
+contains (arr, val) {
+    return arr.indexOf(val) != -1 ? true : false;
+}
+
+
+/**
+* @param  {arr} 数组
+* @param  {fn} 回调函数
+* @return {undefined}
+*/
+each (arr, fn) {
+    fn = fn || Function;
+    var a = [];
+    var args = Array.prototype.slice.call(arguments, 1);
+    for(var i = 0; i &lt; arr.length; i++) {
+        var res = fn.apply(arr, [arr[i], i].concat(args));
+        if(res != null) a.push(res);
+    }
+}
+
+/**
+* @param  {arr} 数组
+* @param  {fn} 回调函数
+* @param  {thisObj} this指向
+* @return {Array} 
+*/
+map (arr, fn, thisObj) {
+    var scope = thisObj || window;
+    var a = [];
+    for(var i = 0, j = arr.length; i &lt; j; ++i) {
+        var res = fn.call(scope, arr[i], i, this);
+        if(res != null) a.push(res);
+    }
+    return a;
+}
+
+
+/**
+* @param  {arr} 数组
+* @param  {type} 1：从小到大   2：从大到小   3：随机
+* @return {Array}
+*/
+sort (arr, type = 1) {
+    return arr.sort( (a, b) =&gt; {
+        switch(type) {
+            case 1:
+                return a - b;
+            case 2:
+                return b - a;
+            case 3:
+                return Math.random() - 0.5;
+            default:
+                return arr;
+        }
+    })
+}
+
+/*去重*/
+unique (arr) {
+    if ( Array.hasOwnProperty(&apos;from&apos;) ) {
+        return Array.from(new Set(arr));
+    }else{
+        var n = {},r=[]; 
+        for(var i = 0; i &lt; arr.length; i++){
+            if (!n[arr[i]]){
+                n[arr[i]] = true; 
+                r.push(arr[i]);
+            }
+        }
+        return r;
+    }
+    // 注：上面 else 里面的排重并不能区分 2 和 &apos;2&apos;，但能减少用indexOf带来的性能,暂时没找到替代的方法。。。
+    /* 正确排重
+    if ( Array.hasOwnProperty(&apos;from&apos;) ) {
+        return Array.from(new Set(arr))
+    }else{
+        var r = [], NaNBol = true
+        for(var i=0; i &lt; arr.length; i++) {
+            if (arr[i] !== arr[i]) {
+                if (NaNBol &amp;&amp; r.indexOf(arr[i]) === -1) {
+                    r.push(arr[i])
+                    NaNBol = false
+                }
+            }else{
+                if(r.indexOf(arr[i]) === -1) r.push(arr[i])
+            }
+        }
+        return r
+    }
+
+    */
+}
+
+
+/*求两个集合的并集*/
+union (a, b) {
+    var newArr = a.concat(b);
+    return this.unique(newArr);
+}
+
+/*求两个集合的交集*/
+intersect (a, b) {
+    var _this = this;
+    a = this.unique(a);
+    return this.map(a, function(o) {
+        return _this.contains(b, o) ? o : null;
+    });
+}
+
+/*删除其中一个元素*/
+remove (arr, ele) {
+    var index = arr.indexOf(ele);
+    if(index &gt; -1) {
+        arr.splice(index, 1);
+    }
+    return arr;
+}
+
+/*将类数组转换为数组的方法*/
+formArray (ary) {
+    var arr = [];
+    if(Array.isArray(ary)) {
+        arr = ary;
+    } else {
+        arr = Array.prototype.slice.call(ary);
+    };
+    return arr;
+}
+
+/*最大值*/
+max (arr) {
+    return Math.max.apply(null, arr);
+}
+
+/*最小值*/
+min (arr) {
+    return Math.min.apply(null, arr);
+}
+
+/*求和*/
+sum (arr) {
+    return arr.reduce( (pre, cur) =&gt; {
+        return pre + cur
+    })
+}
+
+/*平均值*/
+average (arr) {
+    return this.sum(arr)/arr.length
+}
+</code></pre><h4 id="String-字符串操作"><a href="#String-字符串操作" class="headerlink" title="String 字符串操作"></a>String 字符串操作</h4><p>/**</p>
+<pre><code>* 去除空格
+* @param  {str}
+* @param  {type} 
+*       type:  1-所有空格  2-前后空格  3-前空格 4-后空格
+* @return {String}
+</code></pre><p>*/</p>
+<pre><code>trim (str, type) {
+    type = type || 1
+    switch (type) {
+        case 1:
+            return str.replace(/\s+/g, &quot;&quot;);
+        case 2:
+            return str.replace(/(^\s*)|(\s*$)/g, &quot;&quot;);
+        case 3:
+            return str.replace(/(^\s*)/g, &quot;&quot;);
+        case 4:
+            return str.replace(/(\s*$)/g, &quot;&quot;);
+        default:
+            return str;
+    }
+}
+</code></pre><p>/**</p>
+<pre><code>* @param  {str} 
+* @param  {type}
+*       type:  1:首字母大写  2：首页母小写  3：大小写转换  4：全部大写  5：全部小写
+* @return {String}
+</code></pre><p>*/</p>
+<pre><code>changeCase (str, type) {
+    type = type || 4
+    switch (type) {
+        case 1:
+            return str.replace(/\b\w+\b/g, function (word) {
+                return word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
+
+            });
+        case 2:
+            return str.replace(/\b\w+\b/g, function (word) {
+                return word.substring(0, 1).toLowerCase() + word.substring(1).toUpperCase();
+            });
+        case 3:
+            return str.split(&apos;&apos;).map( function(word){
+                if (/[a-z]/.test(word)) {
+                    return word.toUpperCase();
+                }else{
+                    return word.toLowerCase()
+                }
+            }).join(&apos;&apos;)
+        case 4:
+            return str.toUpperCase();
+        case 5:
+            return str.toLowerCase();
+        default:
+            return str;
+    }
+}
+</code></pre><p>/<em><br>    检测密码强度
+</em>/</p>
+<pre><code>checkPwd (str) {
+    var Lv = 0;
+    if (str.length &lt; 6) {
+        return Lv
+    }
+    if (/[0-9]/.test(str)) {
+        Lv++
+    }
+    if (/[a-z]/.test(str)) {
+        Lv++
+    }
+    if (/[A-Z]/.test(str)) {
+        Lv++
+    }
+    if (/[\.|-|_]/.test(str)) {
+        Lv++
+    }
+    return Lv;
+}
+
+/*过滤html代码(把&lt;&gt;转换)*/
+filterTag (str) {
+    str = str.replace(/&amp;/ig, &quot;&amp;amp;&quot;);
+    str = str.replace(/&lt;/ig, &quot;&amp;lt;&quot;);
+    str = str.replace(/&gt;/ig, &quot;&amp;gt;&quot;);
+    str = str.replace(&quot; &quot;, &quot;&amp;nbsp;&quot;);
+    return str;
+}
+</code></pre><h4 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h4><p>/<em>随机数范围</em>/<br>random (min, max) {<br>    if (arguments.length === 2) {<br>        return Math.floor(min + Math.random() * ( (max+1) - min ))<br>    }else{<br>        return null;<br>    }</p>
+<p>}</p>
+<p>/<em>将阿拉伯数字翻译成中文的大写数字</em>/<br>numberToChinese (num) {<br>    var AA = new Array(“零”, “一”, “二”, “三”, “四”, “五”, “六”, “七”, “八”, “九”, “十”);<br>    var BB = new Array(“”, “十”, “百”, “仟”, “萬”, “億”, “点”, “”);<br>    var a = (“” + num).replace(/(^0*)/g, “”).split(“.”),<br>        k = 0,<br>        re = “”;<br>    for(var i = a[0].length - 1; i &gt;= 0; i–) {<br>        switch(k) {<br>            case 0:<br>                re = BB[7] + re;<br>                break;<br>            case 4:<br>                if(!new RegExp(“0{4}//d{“ + (a[0].length - i - 1) + “}$”)<br>                    .test(a[0]))<br>                    re = BB[4] + re;<br>                break;<br>            case 8:<br>                re = BB[5] + re;<br>                BB[7] = BB[5];<br>                k = 0;<br>                break;<br>        }<br>        if(k % 4 == 2 &amp;&amp; a[0].charAt(i + 2) != 0 &amp;&amp; a[0].charAt(i + 1) == 0)<br>            re = AA[0] + re;<br>        if(a[0].charAt(i) != 0)<br>            re = AA[a[0].charAt(i)] + BB[k % 4] + re;<br>        k++;<br>    }</p>
+<pre><code>if(a.length &gt; 1) // 加上小数部分(如果有小数部分)
+{
+    re += BB[6];
+    for(var i = 0; i &lt; a[1].length; i++)
+        re += AA[a[1].charAt(i)];
+}
+if(re == &apos;一十&apos;)
+    re = &quot;十&quot;;
+if(re.match(/^一/) &amp;&amp; re.length == 3)
+    re = re.replace(&quot;一&quot;, &quot;&quot;);
+return re;
+</code></pre><p>}</p>
+<p>/<em>将数字转换为大写金额</em>/<br>changeToChinese (Num) {<br>        //判断如果传递进来的不是字符的话转换为字符<br>        if(typeof Num == “number”) {<br>            Num = new String(Num);<br>        };<br>        Num = Num.replace(/,/g, “”) //替换tomoney()中的“,”<br>        Num = Num.replace(/ /g, “”) //替换tomoney()中的空格<br>        Num = Num.replace(/￥/g, “”) //替换掉可能出现的￥字符<br>        if(isNaN(Num)) { //验证输入的字符是否为数字<br>            //alert(“请检查小写金额是否正确”);<br>            return “”;<br>        };<br>        //字符处理完毕后开始转换，采用前后两部分分别转换<br>        var part = String(Num).split(“.”);<br>        var newchar = “”;<br>        //小数点前进行转化<br>        for(var i = part[0].length - 1; i &gt;= 0; i–) {<br>            if(part[0].length &gt; 10) {<br>                return “”;<br>                //若数量超过拾亿单位，提示<br>            }<br>            var tmpnewchar = “”<br>            var perchar = part[0].charAt(i);<br>            switch(perchar) {<br>                case “0”:<br>                    tmpnewchar = “零” + tmpnewchar;<br>                    break;<br>                case “1”:<br>                    tmpnewchar = “壹” + tmpnewchar;<br>                    break;<br>                case “2”:<br>                    tmpnewchar = “贰” + tmpnewchar;<br>                    break;<br>                case “3”:<br>                    tmpnewchar = “叁” + tmpnewchar;<br>                    break;<br>                case “4”:<br>                    tmpnewchar = “肆” + tmpnewchar;<br>                    break;<br>                case “5”:<br>                    tmpnewchar = “伍” + tmpnewchar;<br>                    break;<br>                case “6”:<br>                    tmpnewchar = “陆” + tmpnewchar;<br>                    break;<br>                case “7”:<br>                    tmpnewchar = “柒” + tmpnewchar;<br>                    break;<br>                case “8”:<br>                    tmpnewchar = “捌” + tmpnewchar;<br>                    break;<br>                case “9”:<br>                    tmpnewchar = “玖” + tmpnewchar;<br>                    break;<br>            }<br>            switch(part[0].length - i - 1) {<br>                case 0:<br>                    tmpnewchar = tmpnewchar + “元”;<br>                    break;<br>                case 1:<br>                    if(perchar != 0) tmpnewchar = tmpnewchar + “拾”;<br>                    break;<br>                case 2:<br>                    if(perchar != 0) tmpnewchar = tmpnewchar + “佰”;<br>                    break;<br>                case 3:<br>                    if(perchar != 0) tmpnewchar = tmpnewchar + “仟”;<br>                    break;<br>                case 4:<br>                    tmpnewchar = tmpnewchar + “万”;<br>                    break;<br>                case 5:<br>                    if(perchar != 0) tmpnewchar = tmpnewchar + “拾”;<br>                    break;<br>                case 6:<br>                    if(perchar != 0) tmpnewchar = tmpnewchar + “佰”;<br>                    break;<br>                case 7:<br>                    if(perchar != 0) tmpnewchar = tmpnewchar + “仟”;<br>                    break;<br>                case 8:<br>                    tmpnewchar = tmpnewchar + “亿”;<br>                    break;<br>                case 9:<br>                    tmpnewchar = tmpnewchar + “拾”;<br>                    break;<br>            }<br>            var newchar = tmpnewchar + newchar;<br>        }<br>        //小数点之后进行转化<br>        if(Num.indexOf(“.”) != -1) {<br>            if(part[1].length &gt; 2) {<br>                // alert(“小数点之后只能保留两位,系统将自动截断”);<br>                part[1] = part[1].substr(0, 2)<br>            }<br>            for(i = 0; i &lt; part[1].length; i++) {<br>                tmpnewchar = “”<br>                perchar = part[1].charAt(i)<br>                switch(perchar) {<br>                    case “0”:<br>                        tmpnewchar = “零” + tmpnewchar;<br>                        break;<br>                    case “1”:<br>                        tmpnewchar = “壹” + tmpnewchar;<br>                        break;<br>                    case “2”:<br>                        tmpnewchar = “贰” + tmpnewchar;<br>                        break;<br>                    case “3”:<br>                        tmpnewchar = “叁” + tmpnewchar;<br>                        break;<br>                    case “4”:<br>                        tmpnewchar = “肆” + tmpnewchar;<br>                        break;<br>                    case “5”:<br>                        tmpnewchar = “伍” + tmpnewchar;<br>                        break;<br>                    case “6”:<br>                        tmpnewchar = “陆” + tmpnewchar;<br>                        break;<br>                    case “7”:<br>                        tmpnewchar = “柒” + tmpnewchar;<br>                        break;<br>                    case “8”:<br>                        tmpnewchar = “捌” + tmpnewchar;<br>                        break;<br>                    case “9”:<br>                        tmpnewchar = “玖” + tmpnewchar;<br>                        break;<br>                }<br>                if(i == 0) tmpnewchar = tmpnewchar + “角”;<br>                if(i == 1) tmpnewchar = tmpnewchar + “分”;<br>                newchar = newchar + tmpnewchar;<br>            }<br>        }<br>        //替换所有无用汉字<br>        while(newchar.search(“零零”) != -1)<br>            newchar = newchar.replace(“零零”, “零”);<br>        newchar = newchar.replace(“零亿”, “亿”);<br>        newchar = newchar.replace(“亿万”, “亿”);<br>        newchar = newchar.replace(“零万”, “万”);<br>        newchar = newchar.replace(“零元”, “元”);<br>        newchar = newchar.replace(“零角”, “”);<br>        newchar = newchar.replace(“零分”, “”);<br>        if(newchar.charAt(newchar.length - 1) == “元”) {<br>            newchar = newchar + “整”<br>        }<br>        return newchar;<br>    }</p>
+<h4 id="Http"><a href="#Http" class="headerlink" title="Http"></a>Http</h4><p>/**</p>
+<pre><code>* @param  {setting}
+</code></pre><p>*/</p>
+<pre><code>ajax(setting){
+    //设置参数的初始值
+    var opts={
+        method: (setting.method || &quot;GET&quot;).toUpperCase(), //请求方式
+        url: setting.url || &quot;&quot;, // 请求地址
+        async: setting.async || true, // 是否异步
+        dataType: setting.dataType || &quot;json&quot;, // 解析方式
+        data: setting.data || &quot;&quot;, // 参数
+        success: setting.success || function(){}, // 请求成功回调
+        error: setting.error || function(){} // 请求失败回调
+    }
+
+    // 参数格式化
+    function params_format (obj) {
+        var str = &apos;&apos;
+        for (var i in obj) {
+            str += i + &apos;=&apos; + obj[i] + &apos;&amp;&apos;
+        }
+        return str.split(&apos;&apos;).slice(0, -1).join(&apos;&apos;)
+    }
+
+    // 创建ajax对象
+    var xhr=new XMLHttpRequest();
+
+    // 连接服务器open(方法GET/POST，请求地址， 异步传输)
+    if(opts.method == &apos;GET&apos;){
+        xhr.open(opts.method, opts.url + &quot;?&quot; + params_format(opts.data), opts.async);
+        xhr.send();
+    }else{
+        xhr.open(opts.method, opts.url, opts.async);
+        xhr.setRequestHeader(&quot;Content-Type&quot;,&quot;application/x-www-form-urlencoded&quot;);
+        xhr.send(opts.data);
+    }
+</code></pre><p>/<em><br>    <strong> 每当readyState改变时，就会触发onreadystatechange事件
+    </strong> readyState属性存储有XMLHttpRequest的状态信息<br>    <strong> 0 ：请求未初始化
+    </strong> 1 ：服务器连接已建立<br>    <strong> 2 ：请求已接受
+    </strong> 3 : 请求处理中<br>    ** 4 ：请求已完成，且相应就绪
+</em>/</p>
+<pre><code>    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 &amp;&amp; (xhr.status === 200 || xhr.status === 304)) {
+            switch(opts.dataType){
+                case &quot;json&quot;:
+                    var json = JSON.parse(xhr.responseText);
+                    opts.success(json);
+                    break;
+                case &quot;xml&quot;:
+                    opts.success(xhr.responseXML);
+                    break;
+                default:
+                    opts.success(xhr.responseText);
+                    break;
+            }
+        }
+    }
+
+    xhr.onerror = function(err) {
+        opts.error(err);
+    }
+}
+</code></pre><p>/**</p>
+<pre><code>* @param  {url}
+* @param  {setting}
+* @return {Promise}
+</code></pre><p>*/</p>
+<pre><code>fetch(url, setting) {
+    //设置参数的初始值
+    let opts={
+        method: (setting.method || &apos;GET&apos;).toUpperCase(), //请求方式
+        headers : setting.headers  || {}, // 请求头设置
+        credentials : setting.credentials  || true, // 设置cookie是否一起发送
+        body: setting.body || {},
+        mode : setting.mode  || &apos;no-cors&apos;, // 可以设置 cors, no-cors, same-origin
+        redirect : setting.redirect  || &apos;follow&apos;, // follow, error, manual
+        cache : setting.cache  || &apos;default&apos; // 设置 cache 模式 (default, reload, no-cache)
+    }
+    let dataType = setting.dataType || &quot;json&quot;, // 解析方式  
+        data = setting.data || &quot;&quot; // 参数
+
+    // 参数格式化
+    function params_format (obj) {
+        var str = &apos;&apos;
+        for (var i in obj) {
+            str += `${i}=${obj[i]}&amp;`
+        }
+        return str.split(&apos;&apos;).slice(0, -1).join(&apos;&apos;)
+    }
+
+    if (opts.method === &apos;GET&apos;) {
+        url = url + (data?`?${params_format(data)}`:&apos;&apos;)
+    }else{
+        setting.body = data || {}
+    }
+
+    return new Promise( (resolve, reject) =&gt; {
+        fetch(url, opts).then( async res =&gt; {
+            let data = dataType === &apos;text&apos; ? await res.text() :
+                dataType === &apos;blob&apos; ? await res.blob() : await res.json() 
+            resolve(data)
+        }).catch( e =&gt; {
+            reject(e)
+        })
+    })
+
+}
+</code></pre><h4 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h4><pre><code>$ (selector){ 
+    var type = selector.substring(0, 1);
+    if (type === &apos;#&apos;) {
+        if (document.querySelecotor) return document.querySelector(selector)
+            return document.getElementById(selector.substring(1))
+
+    }else if (type === &apos;.&apos;) {
+        if (document.querySelecotorAll) return document.querySelectorAll(selector)
+            return document.getElementsByClassName(selector.substring(1))
+    }else{
+        return document[&apos;querySelectorAll&apos; ? &apos;querySelectorAll&apos;:&apos;getElementsByTagName&apos;](selector)
+    }
+} 
+
+/*检测类名*/
+hasClass (ele, name) {
+    return ele.className.match(new RegExp(&apos;(\\s|^)&apos; + name + &apos;(\\s|$)&apos;));
+}
+
+/*添加类名*/
+addClass (ele, name) {
+    if (!this.hasClass(ele, name)) ele.className += &quot; &quot; + name;
+}
+
+/*删除类名*/
+removeClass (ele, name) {
+    if (this.hasClass(ele, name)) {
+        var reg = new RegExp(&apos;(\\s|^)&apos; + name + &apos;(\\s|$)&apos;);
+        ele.className = ele.className.replace(reg, &apos;&apos;);
+    }
+}
+
+/*替换类名*/
+replaceClass (ele, newName, oldName) {
+    this.removeClass(ele, oldName);
+    this.addClass(ele, newName);
+}
+
+/*获取兄弟节点*/
+siblings (ele) {
+    console.log(ele.parentNode)
+    var chid = ele.parentNode.children,eleMatch = []; 
+    for(var i = 0, len = chid.length; i &lt; len; i ++){ 
+        if(chid[i] != ele){ 
+            eleMatch.push(chid[i]); 
+        } 
+    } 
+    return eleMatch;
+}
+
+/*获取行间样式属性*/
+getByStyle (obj,name){
+    if(obj.currentStyle){
+        return  obj.currentStyle[name];
+    }else{
+        return  getComputedStyle(obj,false)[name];
+    }
+}
+</code></pre><h4 id="Storage-储存操作"><a href="#Storage-储存操作" class="headerlink" title="Storage 储存操作"></a>Storage 储存操作</h4><pre><code>class StorageFn {
+    constructor () {
+        this.ls = window.localStorage;
+        this.ss = window.sessionStorage;
+    }
+
+    /*-----------------cookie---------------------*/
+    /*设置cookie*/
+    setCookie (name, value, day) {
+        var setting = arguments[0];
+        if (Object.prototype.toString.call(setting).slice(8, -1) === &apos;Object&apos;){
+            for (var i in setting) {
+                var oDate = new Date();
+                oDate.setDate(oDate.getDate() + day);
+                document.cookie = i + &apos;=&apos; + setting[i] + &apos;;expires=&apos; + oDate;
+            }
+        }else{
+            var oDate = new Date();
+            oDate.setDate(oDate.getDate() + day);
+            document.cookie = name + &apos;=&apos; + value + &apos;;expires=&apos; + oDate;
+        }
+
+    }
+
+    /*获取cookie*/
+    getCookie (name) {
+        var arr = document.cookie.split(&apos;; &apos;);
+        for (var i = 0; i &lt; arr.length; i++) {
+            var arr2 = arr[i].split(&apos;=&apos;);
+            if (arr2[0] == name) {
+                return arr2[1];
+            }
+        }
+        return &apos;&apos;;
+    }
+
+    /*删除cookie*/
+    removeCookie (name) {
+        this.setCookie(name, 1, -1);
+    }
+
+
+    /*-----------------localStorage---------------------*/
+    /*设置localStorage*/
+    setLocal(key, val) {
+        var setting = arguments[0];
+        if (Object.prototype.toString.call(setting).slice(8, -1) === &apos;Object&apos;){
+            for(var i in setting){
+                this.ls.setItem(i, JSON.stringify(setting[i]))
+            }
+        }else{
+            this.ls.setItem(key, JSON.stringify(val))
+        }
+
+    }
+
+    /*获取localStorage*/
+    getLocal(key) {
+        if (key) return JSON.parse(this.ls.getItem(key))
+        return null;
+
+    }
+
+    /*移除localStorage*/
+    removeLocal(key) {
+        this.ls.removeItem(key)
+    }
+
+    /*移除所有localStorage*/
+    clearLocal() {
+        this.ls.clear()
+    }
+
+
+    /*-----------------sessionStorage---------------------*/
+    /*设置sessionStorage*/
+    setSession(key, val) {
+        var setting = arguments[0];
+        if (Object.prototype.toString.call(setting).slice(8, -1) === &apos;Object&apos;){
+            for(var i in setting){
+                this.ss.setItem(i, JSON.stringify(setting[i]))
+            }
+        }else{
+            this.ss.setItem(key, JSON.stringify(val))
+        }
+
+    }
+
+    /*获取sessionStorage*/
+    getSession(key) {
+        if (key) return JSON.parse(this.ss.getItem(key))
+        return null;
+
+    }
+
+    /*移除sessionStorage*/
+    removeSession(key) {
+        this.ss.removeItem(key)
+    }
+
+    /*移除所有sessionStorage*/
+    clearSession() {
+        this.ss.clear()
+    }
+
+
+}
+</code></pre><h4 id="Other-其它操作"><a href="#Other-其它操作" class="headerlink" title="Other 其它操作"></a>Other 其它操作</h4><pre><code>/*获取网址参数*/
+getURL(name){
+    var reg = new RegExp(&quot;(^|&amp;)&quot;+ name +&quot;=([^&amp;]*)(&amp;|$)&quot;);
+    var r = decodeURI(window.location.search).substr(1).match(reg);
+    if(r!=null) return  r[2]; return null;
+}
+
+/*获取全部url参数,并转换成json对象*/
+getUrlAllParams (url) {
+    var url = url ? url : window.location.href;
+    var _pa = url.substring(url.indexOf(&apos;?&apos;) + 1),
+        _arrS = _pa.split(&apos;&amp;&apos;),
+        _rs = {};
+    for (var i = 0, _len = _arrS.length; i &lt; _len; i++) {
+        var pos = _arrS[i].indexOf(&apos;=&apos;);
+        if (pos == -1) {
+            continue;
+        }
+        var name = _arrS[i].substring(0, pos),
+            value = window.decodeURIComponent(_arrS[i].substring(pos + 1));
+        _rs[name] = value;
+    }
+    return _rs;
+}
+
+/*删除url指定参数，返回url*/
+delParamsUrl(url, name){
+    var baseUrl = url.split(&apos;?&apos;)[0] + &apos;?&apos;;
+    var query = url.split(&apos;?&apos;)[1];
+    if (query.indexOf(name)&gt;-1) {
+        var obj = {}
+        var arr = query.split(&quot;&amp;&quot;);
+        for (var i = 0; i &lt; arr.length; i++) {
+            arr[i] = arr[i].split(&quot;=&quot;);
+            obj[arr[i][0]] = arr[i][1];
+        };
+        delete obj[name];
+        var url = baseUrl + JSON.stringify(obj).replace(/[\&quot;\{\}]/g,&quot;&quot;).replace(/\:/g,&quot;=&quot;).replace(/\,/g,&quot;&amp;&quot;);
+        return url
+    }else{
+        return url;
+    }
+}
+
+/*获取十六进制随机颜色*/
+getRandomColor () {
+    return &apos;#&apos; + (function(h) {
+        return new Array(7 - h.length).join(&quot;0&quot;) + h;
+    })((Math.random() * 0x1000000 &lt;&lt; 0).toString(16));
+}
+
+/*图片加载*/
+imgLoadAll(arr,callback){
+    var arrImg = []; 
+    for (var i = 0; i &lt; arr.length; i++) {
+        var img = new Image();
+        img.src = arr[i];
+        img.onload = function(){
+            arrImg.push(this);
+            if (arrImg.length == arr.length) {
+                callback &amp;&amp; callback();
+            }
+        }
+    }
+}
+
+/*音频加载*/
+loadAudio(src, callback) {
+    var audio = new Audio(src);
+    audio.onloadedmetadata = callback;
+    audio.src = src;
+}
+
+/*DOM转字符串*/
+domToStirng(htmlDOM){
+    var div= document.createElement(&quot;div&quot;);
+    div.appendChild(htmlDOM);
+    return div.innerHTML
+}
+
+/*字符串转DOM*/
+stringToDom(htmlString){
+    var div= document.createElement(&quot;div&quot;);
+    div.innerHTML=htmlString;
+    return div.children[0];
+}
+</code></pre><p>/**</p>
+<pre><code>* 光标所在位置插入字符，并设置光标位置
+* 
+* @param {dom} 输入框
+* @param {val} 插入的值
+* @param {posLen} 光标位置处在 插入的值的哪个位置
+</code></pre><p>*/</p>
+<pre><code>setCursorPosition (dom,val,posLen) {
+    var cursorPosition = 0;
+    if(dom.selectionStart){
+        cursorPosition = dom.selectionStart;
+    }
+    this.insertAtCursor(dom,val);
+    dom.focus();
+    console.log(posLen)
+    dom.setSelectionRange(dom.value.length,cursorPosition + (posLen || val.length));
+}
+
+/*光标所在位置插入字符*/
+insertAtCursor(dom, val) {
+    if (document.selection){
+        dom.focus();
+        sel = document.selection.createRange();
+        sel.text = val;
+        sel.select();
+    }else if (dom.selectionStart || dom.selectionStart == &apos;0&apos;){
+        let startPos = dom.selectionStart;
+        let endPos = dom.selectionEnd;
+        let restoreTop = dom.scrollTop;
+        dom.value = dom.value.substring(0, startPos) + val + dom.value.substring(endPos, dom.value.length);
+        if (restoreTop &gt; 0){
+            dom.scrollTop = restoreTop;
+        }
+        dom.focus();
+        dom.selectionStart = startPos + val.length;
+        dom.selectionEnd = startPos + val.length;
+    } else {
+        dom.value += val;
+        dom.focus();
+    }
+}
+</code></pre><blockquote>
+<p>CSS</p>
+</blockquote>
+<h4 id="pc-reset-PC样式初始化"><a href="#pc-reset-PC样式初始化" class="headerlink" title="pc-reset PC样式初始化"></a>pc-reset PC样式初始化</h4><pre><code>/* normalize.css */
+
+html {
+line-height: 1.15;
+/* 1 */
+-ms-text-size-adjust: 100%;
+/* 2 */
+-webkit-text-size-adjust: 100%;
+/* 2 */
+}
+
+body {
+margin: 0;
+}
+
+article,
+aside,
+footer,
+header,
+nav,
+section {
+display: block;
+}
+
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+
+figcaption,
+figure,
+main {
+/* 1 */
+display: block;
+}
+
+figure {
+margin: 1em 40px;
+}
+
+hr {
+box-sizing: content-box;
+/* 1 */
+height: 0;
+/* 1 */
+overflow: visible;
+/* 2 */
+}
+
+pre {
+font-family: monospace, monospace;
+/* 1 */
+font-size: 1em;
+/* 2 */
+}
+
+a {
+background-color: transparent;
+/* 1 */
+-webkit-text-decoration-skip: objects;
+/* 2 */
+}
+
+abbr[title] {
+border-bottom: none;
+/* 1 */
+text-decoration: underline;
+/* 2 */
+text-decoration: underline dotted;
+/* 2 */
+}
+
+b,
+strong {
+font-weight: inherit;
+}
+
+b,
+strong {
+font-weight: bolder;
+}
+
+code,
+kbd,
+samp {
+font-family: monospace, monospace;
+/* 1 */
+font-size: 1em;
+/* 2 */
+}
+
+dfn {
+font-style: italic;
+}
+
+mark {
+background-color: #ff0;
+color: #000;
+}
+
+small {
+font-size: 80%;
+}
+
+sub,
+sup {
+font-size: 75%;
+line-height: 0;
+position: relative;
+vertical-align: baseline;
+}
+
+sub {
+bottom: -0.25em;
+}
+
+sup {
+top: -0.5em;
+}
+
+audio,
+video {
+display: inline-block;
+}
+
+audio:not([controls]) {
+display: none;
+height: 0;
+}
+
+img {
+border-style: none;
+}
+
+svg:not(:root) {
+overflow: hidden;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+font-family: sans-serif;
+/* 1 */
+font-size: 100%;
+/* 1 */
+line-height: 1.15;
+/* 1 */
+margin: 0;
+/* 2 */
+}
+
+button,
+input {
+/* 1 */
+overflow: visible;
+}
+
+button,
+select {
+/* 1 */
+text-transform: none;
+}
+
+button,
+html [type=&quot;button&quot;],
+
+/* 1 */
+
+[type=&quot;reset&quot;],
+[type=&quot;submit&quot;] {
+-webkit-appearance: button;
+/* 2 */
+}
+
+button::-moz-focus-inner,
+[type=&quot;button&quot;]::-moz-focus-inner,
+[type=&quot;reset&quot;]::-moz-focus-inner,
+[type=&quot;submit&quot;]::-moz-focus-inner {
+border-style: none;
+padding: 0;
+}
+
+button:-moz-focusring,
+[type=&quot;button&quot;]:-moz-focusring,
+[type=&quot;reset&quot;]:-moz-focusring,
+[type=&quot;submit&quot;]:-moz-focusring {
+outline: 1px dotted ButtonText;
+}
+
+fieldset {
+padding: 0.35em 0.75em 0.625em;
+}
+
+legend {
+box-sizing: border-box;
+/* 1 */
+color: inherit;
+/* 2 */
+display: table;
+/* 1 */
+max-width: 100%;
+/* 1 */
+padding: 0;
+/* 3 */
+white-space: normal;
+/* 1 */
+}
+
+progress {
+display: inline-block;
+/* 1 */
+vertical-align: baseline;
+/* 2 */
+}
+
+textarea {
+overflow: auto;
+}
+
+[type=&quot;checkbox&quot;],
+[type=&quot;radio&quot;] {
+box-sizing: border-box;
+/* 1 */
+padding: 0;
+/* 2 */
+}
+
+[type=&quot;number&quot;]::-webkit-inner-spin-button,
+[type=&quot;number&quot;]::-webkit-outer-spin-button {
+height: auto;
+}
+
+[type=&quot;search&quot;] {
+-webkit-appearance: textfield;
+/* 1 */
+outline-offset: -2px;
+/* 2 */
+}
+
+[type=&quot;search&quot;]::-webkit-search-cancel-button,
+[type=&quot;search&quot;]::-webkit-search-decoration {
+-webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+-webkit-appearance: button;
+/* 1 */
+font: inherit;
+/* 2 */
+}
+
+details,
+
+/* 1 */
+
+menu {
+display: block;
+}
+
+summary {
+display: list-item;
+}
+
+canvas {
+display: inline-block;
+}
+
+template {
+display: none;
+}
+
+[hidden] {
+display: none;
+}
+
+
+/* reset */
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+p,
+blockquote,
+pre,
+hr,
+figure,
+table,
+caption,
+th,
+td,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+menu {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+</code></pre><h4 id="Phone-reset"><a href="#Phone-reset" class="headerlink" title="Phone-reset"></a>Phone-reset</h4><pre><code>/* normalize.css */
+
+html {
+line-height: 1.15;
+/* 1 */
+-ms-text-size-adjust: 100%;
+/* 2 */
+-webkit-text-size-adjust: 100%;
+/* 2 */
+}
+
+body {
+margin: 0;
+}
+
+article,
+aside,
+footer,
+header,
+nav,
+section {
+display: block;
+}
+
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+
+figcaption,
+figure,
+main {
+/* 1 */
+display: block;
+}
+
+figure {
+margin: 1em 40px;
+}
+
+hr {
+box-sizing: content-box;
+/* 1 */
+height: 0;
+/* 1 */
+overflow: visible;
+/* 2 */
+}
+
+pre {
+font-family: monospace, monospace;
+/* 1 */
+font-size: 1em;
+/* 2 */
+}
+
+a {
+background-color: transparent;
+/* 1 */
+-webkit-text-decoration-skip: objects;
+/* 2 */
+}
+
+abbr[title] {
+border-bottom: none;
+/* 1 */
+text-decoration: underline;
+/* 2 */
+text-decoration: underline dotted;
+/* 2 */
+}
+
+b,
+strong {
+font-weight: inherit;
+}
+
+b,
+strong {
+font-weight: bolder;
+}
+
+code,
+kbd,
+samp {
+font-family: monospace, monospace;
+/* 1 */
+font-size: 1em;
+/* 2 */
+}
+
+dfn {
+font-style: italic;
+}
+
+mark {
+background-color: #ff0;
+color: #000;
+}
+
+small {
+font-size: 80%;
+}
+
+sub,
+sup {
+font-size: 75%;
+line-height: 0;
+position: relative;
+vertical-align: baseline;
+}
+
+sub {
+bottom: -0.25em;
+}
+
+sup {
+top: -0.5em;
+}
+
+audio,
+video {
+display: inline-block;
+}
+
+audio:not([controls]) {
+display: none;
+height: 0;
+}
+
+img {
+border-style: none;
+}
+
+svg:not(:root) {
+overflow: hidden;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+font-family: sans-serif;
+/* 1 */
+font-size: 100%;
+/* 1 */
+line-height: 1.15;
+/* 1 */
+margin: 0;
+/* 2 */
+}
+
+button,
+input {
+/* 1 */
+overflow: visible;
+}
+
+button,
+select {
+/* 1 */
+text-transform: none;
+}
+
+button,
+html [type=&quot;button&quot;],
+
+/* 1 */
+
+[type=&quot;reset&quot;],
+[type=&quot;submit&quot;] {
+-webkit-appearance: button;
+/* 2 */
+}
+
+button::-moz-focus-inner,
+[type=&quot;button&quot;]::-moz-focus-inner,
+[type=&quot;reset&quot;]::-moz-focus-inner,
+[type=&quot;submit&quot;]::-moz-focus-inner {
+border-style: none;
+padding: 0;
+}
+
+button:-moz-focusring,
+[type=&quot;button&quot;]:-moz-focusring,
+[type=&quot;reset&quot;]:-moz-focusring,
+[type=&quot;submit&quot;]:-moz-focusring {
+outline: 1px dotted ButtonText;
+}
+
+fieldset {
+padding: 0.35em 0.75em 0.625em;
+}
+
+legend {
+box-sizing: border-box;
+/* 1 */
+color: inherit;
+/* 2 */
+display: table;
+/* 1 */
+max-width: 100%;
+/* 1 */
+padding: 0;
+/* 3 */
+white-space: normal;
+/* 1 */
+}
+
+progress {
+display: inline-block;
+/* 1 */
+vertical-align: baseline;
+/* 2 */
+}
+
+textarea {
+overflow: auto;
+}
+
+[type=&quot;checkbox&quot;],
+[type=&quot;radio&quot;] {
+box-sizing: border-box;
+/* 1 */
+padding: 0;
+/* 2 */
+}
+
+[type=&quot;number&quot;]::-webkit-inner-spin-button,
+[type=&quot;number&quot;]::-webkit-outer-spin-button {
+height: auto;
+}
+
+[type=&quot;search&quot;] {
+-webkit-appearance: textfield;
+/* 1 */
+outline-offset: -2px;
+/* 2 */
+}
+
+[type=&quot;search&quot;]::-webkit-search-cancel-button,
+[type=&quot;search&quot;]::-webkit-search-decoration {
+-webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+-webkit-appearance: button;
+/* 1 */
+font: inherit;
+/* 2 */
+}
+
+details,
+
+/* 1 */
+
+menu {
+display: block;
+}
+
+summary {
+display: list-item;
+}
+
+canvas {
+display: inline-block;
+}
+
+template {
+display: none;
+}
+
+[hidden] {
+display: none;
+}
+
+
+/* reset */
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+p,
+blockquote,
+pre,
+hr,
+figure,
+table,
+caption,
+th,
+td,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+menu {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+html,
+body {
+/* 禁止选中文本 */
+-webkit-user-select: none;
+user-select: none;
+font: Oswald, &apos;Open Sans&apos;, Helvetica, Arial, sans-serif
+}
+
+
+/* 禁止长按链接与图片弹出菜单 */
+
+a,
+img {
+-webkit-touch-callout: none;
+}
+
+
+/*ios android去除自带阴影的样式*/
+
+a,
+input {
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+input[type=&quot;text&quot;] {
+-webkit-appearance: none;
+}
+</code></pre><h4 id="公共样式提取"><a href="#公共样式提取" class="headerlink" title="公共样式提取"></a>公共样式提取</h4><pre><code>/* 禁止选中文本 */
+.usn{
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    -o-user-select:none;
+    user-select:none;
+}
+/* 浮动 */
+.fl { float: left; }
+.fr { float: right; }
+.cf { zoom: 1; }
+.cf:after {
+    content:&quot;.&quot;;
+    display:block;
+    clear:both;
+    visibility:hidden;
+    height:0;
+    overflow:hidden;
+}
+
+/* 元素类型 */
+.db { display: block; }
+.dn { display: none; }
+.di { display: inline }
+.dib {display: inline-block;}
+.transparent { opacity: 0 }
+
+
+/*文字排版、颜色*/
+.f12 { font-size:12px }
+.f14 { font-size:14px }
+.f16 { font-size:16px }
+.f18 { font-size:18px }
+.f20 { font-size:20px }
+.fb { font-weight:bold }
+.fn { font-weight:normal }
+.t2 { text-indent:2em }
+.red,a.red { color:#cc0031 }
+.darkblue,a.darkblue { color:#039 }
+.gray,a.gray { color:#878787 }
+.lh150 { line-height:150% }
+.lh180 { line-height:180% }
+.lh200 { line-height:200% }
+.unl { text-decoration:underline; }
+.no_unl { text-decoration:none; }
+.tl { text-align: left; }
+.tc { text-align: center; }
+.tr { text-align: right; }
+.tj { text-align: justify; text-justify: inter-ideograph; }
+.wn { /* 强制不换行 */
+    word-wrap:normal;
+    white-space:nowrap;
+}
+.wb { /* 强制换行 */
+    white-space:normal;
+    word-wrap:break-word;
+    word-break:break-all;
+}
+.wp { /* 保持空白序列*/
+    overflow:hidden;text-align:left;white-space:pre-wrap;word-wrap:break-word;word-break:break-all;
+}
+.wes { /* 多出部分用省略号表示 , 用于一行 */
+    overflow:hidden;
+    word-wrap:normal;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+.wes-2 { /* 适用于webkit内核和移动端 */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+} 
+.wes-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+.wes-4 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+}
+
+/* 溢出样式 */
+.ofh { overflow: hidden; }
+.ofs {overflow: scroll; }
+.ofa {overflow: auto; }
+.ofv {overflow: visible; }
+
+/* 定位方式 */
+.ps {position: static; }
+.pr {position: relative;zoom:1; }
+.pa {position: absolute; }
+.pf {position: fixed; }
+
+
+/* 垂直对齐方式 */
+.vt {vertical-align: top; }
+.vm {vertical-align: middle; }
+.vb {vertical-align: bottom; }
+
+
+/* 鼠标样式 */
+.csd {cursor: default; }
+.csp {cursor: pointer; }
+.csh {cursor: help; }
+.csm {cursor: move; }
+
+/* flex布局 */
+.df-sb {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.df-sa {
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* 垂直居中 */
+.df-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tb-c {
+    text-align:center;
+    display:table-cell;
+    vertical-align:middle;
+}
+.ts-c {
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+}
+.ts-mc {
+    position: absolute;
+    left: 0;right: 0;
+    bottom: 0; top: 0;
+    margin: auto;
+}
+
+/* 辅助 */
+.mask-fixed-wrapper {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left:0;top:0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 999;
+}
+.bg-cover {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.bg-cover-all {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端js学习/" rel="tag"><i class="fa fa-tag"></i> 前端js学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/16/frame/nuxt/" rel="next" title="Nuxt.js学习">
+                <i class="fa fa-chevron-left"></i> Nuxt.js学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/28/javascript/ajaxѧϰ/" rel="prev" title="ajax学习">
+                ajax学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div onclick="showGitment()" id="gitment_title" class="gitment_title">显示 Gitment 评论</div>
+      <div id="container" style="display:none"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+      const myTheme = {
+        render(state, instance) {
+          const container = document.createElement('div');
+          container.lang = "en-US";
+          container.className = 'gitment-container gitment-root-container';
+          container.appendChild(instance.renderHeader(state, instance));
+          container.appendChild(instance.renderEditor(state, instance));
+          container.appendChild(instance.renderComments(state, instance));
+          container.appendChild(instance.renderFooter(state, instance));
+          return container;
+        }
+      }
+      function showGitment() {
+        $("#gitment_title").attr("style", "display:none");
+        $("#container").attr("style", "").addClass("gitment_container");
+        var gitment = new Gitment({
+          id: window.location.pathname,
+          theme: myTheme,
+          owner: 'wyy511',
+          repo: 'wyy511.github.io',
+          oauth: {
+            client_id: '8f790ada6f9589a27fa3',
+            client_secret: '66c7b0dab2d26369c526fb842dc66d41518f39bf'
+          }
+        });
+        gitment.render('container');
+      }
+      </script>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Wiya" />
+          <p class="site-author-name" itemprop="name">Wiya</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wyy511" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/wyy511" target="_blank" title="SegmentFault">
+                  
+                    <i class="fa fa-fw fa-meh-o"></i>
+                  
+                    
+                      SegmentFault
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:971731208@qq.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                    
+                      E-Mail
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.liaoxuefeng.com/" title="廖雪峰" target="_blank">廖雪峰</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.ruanyifeng.com/blog/" title="阮一峰" target="_blank">阮一峰</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.zhangxinxu.com/wordpress/" title="张鑫旭" target="_blank">张鑫旭</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.cssforest.org/" title="CSS森林(CSS Forest)" target="_blank">CSS森林(CSS Forest)</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.qianduan.net/" title="前端观察" target="_blank">前端观察</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.w3cplus.com/" title="W3Cplus" target="_blank">W3Cplus</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://winter-cn.cnblogs.com/" title="寒冬winter" target="_blank">寒冬winter</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#type-类型判断"><span class="nav-number">1.</span> <span class="nav-text">type 类型判断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Date"><span class="nav-number">2.</span> <span class="nav-text">Date</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Array"><span class="nav-number">3.</span> <span class="nav-text">Array</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-字符串操作"><span class="nav-number">4.</span> <span class="nav-text">String 字符串操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Number"><span class="nav-number">5.</span> <span class="nav-text">Number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Http"><span class="nav-number">6.</span> <span class="nav-text">Http</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM"><span class="nav-number">7.</span> <span class="nav-text">DOM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Storage-储存操作"><span class="nav-number">8.</span> <span class="nav-text">Storage 储存操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Other-其它操作"><span class="nav-number">9.</span> <span class="nav-text">Other 其它操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pc-reset-PC样式初始化"><span class="nav-number">10.</span> <span class="nav-text">pc-reset PC样式初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Phone-reset"><span class="nav-number">11.</span> <span class="nav-text">Phone-reset</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#公共样式提取"><span class="nav-number">12.</span> <span class="nav-text">公共样式提取</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wiya</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+</div>
+
+<div class="powered-by">
+  <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+    本站阅读数:<span id="busuanzi_value_site_pv"></span>
+  </span>
+</div>
+
+<div class="powered-by">
+  <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_uv"></span>
+  </span>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>
