@@ -118,10 +118,13 @@
 <meta property="og:site_name" content="Wiya&#39;s blog">
 <meta property="og:description" content="转载文档：https://blog.csdn.net/CystalVon/article/details/78428036  Vue与React的对比 Vue.js与React.js从默写方面来说很相似，通过两个框架的学习，有时候对一些用法会有点思考，为加深歇息的思索，特从以下各方面进行了对比，加深了对两个框架的认知。  数据绑定Vue中有关数据绑定的部分 vue是双向绑定， Vue.js最核">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-08T12:37:10.000Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3333422-04ea055c73c50c98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://cn.vuejs.org/images/lifecycle.png">
+<meta property="og:updated_time" content="2018-08-09T12:13:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue.js与React.js的全面对比">
 <meta name="twitter:description" content="转载文档：https://blog.csdn.net/CystalVon/article/details/78428036  Vue与React的对比 Vue.js与React.js从默写方面来说很相似，通过两个框架的学习，有时候对一些用法会有点思考，为加深歇息的思索，特从以下各方面进行了对比，加深了对两个框架的认知。  数据绑定Vue中有关数据绑定的部分 vue是双向绑定， Vue.js最核">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3333422-04ea055c73c50c98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -530,6 +533,104 @@
 <li>state：当一个组件mounts时，state如果设置有默认值的会被使用，并且state可能时刻的被改变，一个子控件自身可以管理自己的state，但是需要注意的是，无法管理其子组件的state，所以可以认为，state是子控件自身私有的</li>
 <li>每个组件都有属于自己的state，state和props的区别在于前者（state）值存在于组件内部，只能从当前组件调用this.setState修改state值（不可以直接修改this.state）<br>-props是一个父组件传递给子组件的数据流，可以一直的被传递到子孙组件中，然而state代表的是子组件自身的内部状态。从语义上将，改变组件的状态，可能会导致DOM结构的改变或者重新渲染，而props是父组件传递的参数，所以可以被用于初始化渲染和改变数组自身的状态，虽然大多数时候组件的状态是从外部事件触发改变的，我们需要知道的是，无论是state改版，还是父组件传递的props改变，render方法都可能被执行<br>-一般我们更新子组件都是通过改变state的值，更新子组件的props值从而达到更新</li>
 </ul>
+<p>2.组件之间的通信</p>
+<blockquote>
+<p>父子组件数通信</p>
+</blockquote>
+<pre><code>* 父与子之间痛props属性进行传递
+* 父与子之间，父组件定义事件，子组件触发父组件中的事件时，通过实参的形式来改变父组件中的数据来通信
+</code></pre><p>即：</p>
+<ul>
+<li><p>父组件更新组件状态 –props–  子组件更新</p>
+</li>
+<li><p>子组件更新父组件状态 –需要父组件传递回调函数– 子组件调用触发</p>
+</li>
+</ul>
+<blockquote>
+<p>非父组件之间的通信，嵌套不慎的非父子组件可以使用共同父组件，触发时间函数传形参的方式来实现</p>
+</blockquote>
+<ul>
+<li><p>按照react单向数据流方式，我们需要借助父组件来进行传递，通过父组件回调函数改变兄弟组件的props，其实这种实现方式与子组件更新父组件状态的方式是大同小异的</p>
+</li>
+<li><p>当组件层次很深的时候，在这里， react官方给我们提供了一种上下文方式，可以让子组件直接访问祖先的数据或函数，无需从祖先组件一层层的传递到子组件中</p>
+</li>
+</ul>
+<p>3.组件的生命周期</p>
+<blockquote>
+<p>construtor() //创建组件<br>    componentWillMount() //组件挂载之前<br>    componentDidMount() // 组件挂载之后<br>    componentWillReceiveProps() // 父组件发生render的时候子组件调用该函数<br>    shouldComponentUpdate() // 组件挂载之后每次调用setState后都会调用该函数判断是否需要重新渲染组件，默认返回true<br>    componentDidUpdate() // 更新<br>    render() //渲染，react中的核心函数<br>    componentWillUnmount() //组件被卸载的时候调用，一般在componentDidMount注册的事件需要在这里删除</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/3333422-04ea055c73c50c98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="react生命周期流程"></p>
+<h6 id="vue中的组件及数据流"><a href="#vue中的组件及数据流" class="headerlink" title="vue中的组件及数据流"></a>vue中的组件及数据流</h6><p>1.组件化应用构建</p>
+<ul>
+<li><p>组件系统是vue的另一个重要概念，因为它是一种抽象，允许我们使用小型，独立和通常可复现的组件构建大型应用</p>
+</li>
+<li><p>在vue中，一个组件本质上是一个拥有预定义选项的一个vue实例</p>
+</li>
+<li><p>在一个大型项目中，有必要将整个应用程序划分成组件，以使开发可管理</p>
+</li>
+<li><p>组件是vue最强大的功能之一，组件可以帮助你扩展基本的HTML元素，以封装可重用的代码，在较高层面上，组件是vue编译器附加香味后的自定义元素，在某些情况下，组件也可以是原生HTML元素的形式，以特定的js特性扩展</p>
+</li>
+<li><p>组件中，data必须是一个函数</p>
+</li>
+<li><p>组件可以扩展HTML元素，封装可重用的代码。在较高层面上，组件是自定义的元素，vue的编译器为它添加特殊功能，在有些情况下，组件也可以是原生HTML元素的形式，以js特性扩展</p>
+</li>
+</ul>
+<p>2.响应式</p>
+<ul>
+<li><p>当一个vue实例被创建时，它向vue的响应式系统中加入了其data对象中能找到的所有属性，当这些属性的值发生改变时，视图将会产生“响应”，即匹配更新为新的值</p>
+</li>
+<li><p>当这些数据改变时，视图会重新渲染。值得注意的是只有当实例被创建时，data中存在的属性是响应式的</p>
+</li>
+</ul>
+<p>3.组件的生命周期</p>
+<ul>
+<li><p>每个vue实例在被创建时都要经过一系列的初始化。例如需要设置数据监听，编译模板，挂载实例到DOM，在数据变化时更新DOM等。同时在这个过程中也会运行一些叫做生命周期钩子的函数，给予用户机会在一些特定的场景下添加他们自己的代码</p>
+</li>
+<li><p>比如created钩子可以用来在一个实例被创建之后执行代码，也有一些其他的钩子，在实例生命周期的不同场景下使用，如mounted,updated,destoryed。钩子的this指向调用它的vue实例</p>
+</li>
+<li><p>生命周期图示</p>
+</li>
+</ul>
+<p><img src="https://cn.vuejs.org/images/lifecycle.png" alt="vue生命周期流程"></p>
+<p>4.组件之间的通信</p>
+<ul>
+<li><p>vue默认的是单向数据流，这是vue直接提出来说明的，父组件默认可以向子组件传递数据，但是子组件向父组件传递数据就需要额外设置了</p>
+</li>
+<li><p>vue也支持双向绑定，默认为单向绑定，数据从父组件单向传递给子组件。在大型应用中使用单向绑定让数据流更易于理解</p>
+</li>
+<li><p>父子组件的数据通信时通过props和自定义事件实现的，而非父子组件可以使用订阅/发布模式实现（类似于angular中的非父子指令之间的通信），再复杂一点也是建议使用状态管理（vuex）</p>
+</li>
+<li><p>在vue中，父子组件之间的关系可以概述为：props向下，events向上。父组件通过props向下传递数据给子组件，子组件通过events发送信息给父组件</p>
+</li>
+</ul>
+<blockquote>
+<p>父向子</p>
+</blockquote>
+<ul>
+<li><p>每个组件实例都有自己的孤立隔离的作用域。也就是说，不能（也不应该）直接在子组件模板中引用父组件数据。要想在子组件模板中引用父组件数据，可以使用props将数据向下传递到子组件</p>
+</li>
+<li><p>每个props属性，都可以控制是否从父组件的自定义属性中接受数据，子组件需要使用props选项显示声明props，以便它可以从父组件接收到期望的数据</p>
+</li>
+<li><p>动态props，类似于将一个普通属性绑定到一个表达式，我们还可以使用v-bind将props属性动态的绑定到父组件中的数据。无论父组件何时更新，都可以讲数据向下流入到子组件中</p>
+</li>
+</ul>
+<blockquote>
+<p>子向父</p>
+</blockquote>
+<ul>
+<li><p>使用自定义事件</p>
+</li>
+<li><p>每个vue实例都介入了一个事件接口，也就是说，这些vue实例可以做到</p>
+</li>
+<li><p>使用on监听一个事件，使用emit触发一个事件</p>
+</li>
+</ul>
+<blockquote>
+<p>非父子组件通信</p>
+</blockquote>
+<ul>
+<li>可以使用一个空的vue实例作为一个事件总线中心，用emit触发事件，on监听事件</li>
+</ul>
 <h2 id="后续未完-gt-gt-gt-gt-gt"><a href="#后续未完-gt-gt-gt-gt-gt" class="headerlink" title="后续未完&gt;&gt;&gt;&gt;&gt;"></a>后续未完&gt;&gt;&gt;&gt;&gt;</h2>
       
     </div>
@@ -579,6 +680,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/09/socketio/socket.io学习/" rel="prev" title="socket.io学习">
+                socket.io学习 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -712,7 +817,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -840,7 +945,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue与React的对比"><span class="nav-number">1.</span> <span class="nav-text">Vue与React的对比</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数据绑定"><span class="nav-number">1.1.</span> <span class="nav-text">数据绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Vue中有关数据绑定的部分"><span class="nav-number">1.1.1.</span> <span class="nav-text">Vue中有关数据绑定的部分</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#react没有数据双向绑定"><span class="nav-number">1.1.2.</span> <span class="nav-text">react没有数据双向绑定</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#组件化以及组件数据流"><span class="nav-number">1.2.</span> <span class="nav-text">组件化以及组件数据流</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#react中的组件及数据流"><span class="nav-number">1.2.1.</span> <span class="nav-text">react中的组件及数据流</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后续未完-gt-gt-gt-gt-gt"><span class="nav-number"></span> <span class="nav-text">后续未完&gt;&gt;&gt;&gt;&gt;</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue与React的对比"><span class="nav-number">1.</span> <span class="nav-text">Vue与React的对比</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数据绑定"><span class="nav-number">1.1.</span> <span class="nav-text">数据绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Vue中有关数据绑定的部分"><span class="nav-number">1.1.1.</span> <span class="nav-text">Vue中有关数据绑定的部分</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#react没有数据双向绑定"><span class="nav-number">1.1.2.</span> <span class="nav-text">react没有数据双向绑定</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#组件化以及组件数据流"><span class="nav-number">1.2.</span> <span class="nav-text">组件化以及组件数据流</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#react中的组件及数据流"><span class="nav-number">1.2.1.</span> <span class="nav-text">react中的组件及数据流</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#vue中的组件及数据流"><span class="nav-number">1.2.2.</span> <span class="nav-text">vue中的组件及数据流</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后续未完-gt-gt-gt-gt-gt"><span class="nav-number"></span> <span class="nav-text">后续未完&gt;&gt;&gt;&gt;&gt;</span></a></div>
             
 
           </div>
