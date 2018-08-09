@@ -5,9 +5,9 @@
   <subtitle>Welcome to Wiya&#39;s blog.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://wyy511.top/"/>
   <updated>2018-08-09T12:16:17.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://wyy511.top/</id>
   
   <author>
     <name>Wiya</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>socket.io学习</title>
-    <link href="http://yoursite.com/2018/08/09/socketio/socket.io%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://yoursite.com/2018/08/09/socketio/socket.io学习/</id>
+    <link href="https://wyy511.top/socketio/socket.io%E5%AD%A6%E4%B9%A0.html"/>
+    <id>https://wyy511.top/socketio/socket.io学习.html</id>
     <published>2018-08-09T12:15:13.000Z</published>
     <updated>2018-08-09T12:16:17.000Z</updated>
     
@@ -37,14 +37,14 @@
     </summary>
     
     
-      <category term="前端框架学习" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="前端框架学习" scheme="https://wyy511.top/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>Vue.js与React.js的全面对比</title>
-    <link href="http://yoursite.com/2018/08/08/frame/vue-react/"/>
-    <id>http://yoursite.com/2018/08/08/frame/vue-react/</id>
+    <link href="https://wyy511.top/frame/vue-react.html"/>
+    <id>https://wyy511.top/frame/vue-react.html</id>
     <published>2018-08-08T03:13:10.000Z</published>
     <updated>2018-08-09T12:13:30.000Z</updated>
     
@@ -62,14 +62,14 @@
     </summary>
     
     
-      <category term="前端框架学习" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="前端框架学习" scheme="https://wyy511.top/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>SVG.js学习</title>
-    <link href="http://yoursite.com/2018/06/08/frame/svg/"/>
-    <id>http://yoursite.com/2018/06/08/frame/svg/</id>
+    <link href="https://wyy511.top/frame/svg.html"/>
+    <id>https://wyy511.top/frame/svg.html</id>
     <published>2018-06-08T03:13:10.000Z</published>
     <updated>2018-06-09T03:48:45.000Z</updated>
     
@@ -87,14 +87,14 @@
     </summary>
     
     
-      <category term="前端框架学习" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="前端框架学习" scheme="https://wyy511.top/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>微信小程序（applet of WeChat）</title>
-    <link href="http://yoursite.com/2018/06/03/weixin/wechat-progress/"/>
-    <id>http://yoursite.com/2018/06/03/weixin/wechat-progress/</id>
+    <link href="https://wyy511.top/weixin/wechat-progress.html"/>
+    <id>https://wyy511.top/weixin/wechat-progress.html</id>
     <published>2018-06-03T05:21:09.000Z</published>
     <updated>2018-06-03T07:15:49.000Z</updated>
     
@@ -115,8 +115,8 @@
   
   <entry>
     <title>ajax学习</title>
-    <link href="http://yoursite.com/2018/05/28/javascript/ajax/"/>
-    <id>http://yoursite.com/2018/05/28/javascript/ajax/</id>
+    <link href="https://wyy511.top/javascript/ajax.html"/>
+    <id>https://wyy511.top/javascript/ajax.html</id>
     <published>2018-05-28T10:10:10.000Z</published>
     <updated>2018-08-08T12:34:11.000Z</updated>
     
@@ -134,14 +134,14 @@
     </summary>
     
     
-      <category term="前端js学习" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AFjs%E5%AD%A6%E4%B9%A0/"/>
+      <category term="前端js学习" scheme="https://wyy511.top/tags/%E5%89%8D%E7%AB%AFjs%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>常用工具类的封装（javascript）</title>
-    <link href="http://yoursite.com/2018/05/23/javascript/js%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%B0%81%E8%A3%85/"/>
-    <id>http://yoursite.com/2018/05/23/javascript/js工具类封装/</id>
+    <link href="https://wyy511.top/javascript/js%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%B0%81%E8%A3%85.html"/>
+    <id>https://wyy511.top/javascript/js工具类封装.html</id>
     <published>2018-05-23T08:26:10.000Z</published>
     <updated>2018-05-23T09:10:34.000Z</updated>
     
@@ -158,14 +158,14 @@
     </summary>
     
     
-      <category term="前端js学习" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AFjs%E5%AD%A6%E4%B9%A0/"/>
+      <category term="前端js学习" scheme="https://wyy511.top/tags/%E5%89%8D%E7%AB%AFjs%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>Nuxt.js学习</title>
-    <link href="http://yoursite.com/2018/05/16/frame/nuxt/"/>
-    <id>http://yoursite.com/2018/05/16/frame/nuxt/</id>
+    <link href="https://wyy511.top/frame/nuxt.html"/>
+    <id>https://wyy511.top/frame/nuxt.html</id>
     <published>2018-05-16T03:10:10.000Z</published>
     <updated>2018-05-16T03:26:28.000Z</updated>
     
@@ -182,14 +182,14 @@
     </summary>
     
     
-      <category term="前端框架学习" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="前端框架学习" scheme="https://wyy511.top/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>node.js第一个应用</title>
-    <link href="http://yoursite.com/2018/05/15/node/node.js%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BA%94%E7%94%A8/"/>
-    <id>http://yoursite.com/2018/05/15/node/node.js的第一个应用/</id>
+    <link href="https://wyy511.top/node/node.js%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BA%94%E7%94%A8.html"/>
+    <id>https://wyy511.top/node/node.js的第一个应用.html</id>
     <published>2018-05-15T08:10:10.000Z</published>
     <updated>2018-05-28T09:01:30.000Z</updated>
     
@@ -207,14 +207,14 @@
     </summary>
     
     
-      <category term="node.js学习" scheme="http://yoursite.com/tags/node-js%E5%AD%A6%E4%B9%A0/"/>
+      <category term="node.js学习" scheme="https://wyy511.top/tags/node-js%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>JS事件循环</title>
-    <link href="http://yoursite.com/2018/05/15/javascript/js%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/"/>
-    <id>http://yoursite.com/2018/05/15/javascript/js事件循环/</id>
+    <link href="https://wyy511.top/javascript/js%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF.html"/>
+    <id>https://wyy511.top/javascript/js事件循环.html</id>
     <published>2018-05-15T08:10:10.000Z</published>
     <updated>2018-05-16T03:11:28.000Z</updated>
     
@@ -231,14 +231,14 @@
     </summary>
     
     
-      <category term="前端js学习" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AFjs%E5%AD%A6%E4%B9%A0/"/>
+      <category term="前端js学习" scheme="https://wyy511.top/tags/%E5%89%8D%E7%AB%AFjs%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>我的第一篇文章</title>
-    <link href="http://yoursite.com/2018/05/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
-    <id>http://yoursite.com/2018/05/11/我的第一篇文章/</id>
+    <link href="https://wyy511.top/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0.html"/>
+    <id>https://wyy511.top/我的第一篇文章.html</id>
     <published>2018-05-11T07:44:29.000Z</published>
     <updated>2018-05-11T09:56:24.000Z</updated>
     
@@ -257,14 +257,14 @@
     </summary>
     
     
-      <category term="markdown 语法" scheme="http://yoursite.com/tags/markdown-%E8%AF%AD%E6%B3%95/"/>
+      <category term="markdown 语法" scheme="https://wyy511.top/tags/markdown-%E8%AF%AD%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2018/05/11/hello-world/"/>
-    <id>http://yoursite.com/2018/05/11/hello-world/</id>
+    <link href="https://wyy511.top/hello-world.html"/>
+    <id>https://wyy511.top/hello-world.html</id>
     <published>2018-05-11T07:42:06.000Z</published>
     <updated>2018-05-11T07:42:06.000Z</updated>
     
