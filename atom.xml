@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wyy511.top/"/>
-  <updated>2018-08-09T15:35:55.000Z</updated>
+  <updated>2018-08-22T13:22:01.000Z</updated>
   <id>https://wyy511.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>什么是webpack，为什么要使用它？</title>
+    <link href="https://wyy511.top/javascript/%E5%85%A5%E9%97%A8webpack.html"/>
+    <id>https://wyy511.top/javascript/入门webpack.html</id>
+    <published>2018-08-22T13:14:13.000Z</published>
+    <updated>2018-08-22T13:22:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><br></p><blockquote><p>转载文档：<a href="https://www.jianshu.com/p/d745b94ae920" target="_blank" rel="noopener">https://www.jianshu.com/p/d745b94ae920</a></p></blockquote><h5 id="什么是webpack"><a href="#什么是webpack" class="headerlink" title="什么是webpack"></a>什么是webpack</h5><blockquote><p>webpack可以看做是模块打包机，它做的事情是分析你的项目结构，找到JavaScript模块以及其他的一些浏览器不能直接运行的拓展语言（scss，typescript等），并将其打包为合适的格式以供浏览器使用</p></blockquote><h5 id="为什么要使用webpack"><a href="#为什么要使用webpack" class="headerlink" title="为什么要使用webpack"></a>为什么要使用webpack</h5><blockquote><p>今天很多网页可以看做是功能丰富的应用，它们拥有这复杂的JavaScript代码和一大堆依赖包。为了简化开发的复杂度，前端社区涌现出了很多好的实践方法</p></blockquote><ul><li><p>a:模块化，让我们可以把复杂的程序细化成小的文件</p></li><li><p>b:类似于typescript这种在JavaScript基础上拓展的开发语言，使我们能够事先目前版本的JavaScript不能直接使用的特性，并且之后还能转换为JavaScript文件使浏览器可以识别</p></li><li><p>c:scss,less等css预处理器</p></li><li><p>……</p></li></ul><blockquote><p>这些改进确实大大的提高了我们的开发效率，但是利用他们开发的文件往往需要进行额外的处理才能让浏览器识别，而手动处理又是非常繁琐的，这就为webpack类的工具出现提供了需求</p></blockquote><h5 id="webpack和grunt以及glup相比有什么特性"><a href="#webpack和grunt以及glup相比有什么特性" class="headerlink" title="webpack和grunt以及glup相比有什么特性"></a>webpack和grunt以及glup相比有什么特性</h5><ul><li><p>其实webpack和另外两个并没有太多的可比性，gulp/grunt是一种能够优化前端的开发流程的工具，而webpack是一种模块化的解决方案，不过webpack的有点使得webpack可以替代glup/grunt类的工具</p></li><li><p>grunt和gulp的工作方式是，在一个配置文件中，指明对某些文件进行类似编译、组合、压缩等任务的具体步骤，这个工具之后可以自动替你完成这些任务</p></li><li><p>webpack的工作方式是：把你的项目当做一个整体，通过一个给定的主文件（如index.js），webpack将从这个文件开始找到你的项目所有以来稳健，使用loaders处理他们，最后打包为一个浏览器可识别的javascript文件</p></li></ul><h5 id="优点：模块化"><a href="#优点：模块化" class="headerlink" title="优点：模块化"></a>优点：模块化</h5><blockquote><p>在webpack看来一切都是模块！这就是它不可不说的优点，包括你的JavaScript代码，也包括css和fonts以及图片等待，只有通过合适的loaders，他们都可以被当做模块被处理</p></blockquote><ul><li>1.css</li></ul><blockquote><p>webpack提供两个工具处理样式表，css-loader和style-loader，两者处理的任务不同，css-loader使你能够使用类似@import和url(…)的方法实现require()的功能，style-loader将所有的计算后的样式加入页面中，二者组合在一起使你能够把样式表嵌入webpack打包后的js文件中</p></blockquote><p>需要分别安装：npm install  style-loader css-loader –save-dev</p><p><img src="https://upload-images.jianshu.io/upload_images/2367756-cd63ffb26f36ee78.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/479" alt="webpack配置"></p><ul><li>2.css modules</li></ul><p>在过去一些年里，JavaScript通过一些新的语言特性，更好的工具以及更好的实践方法（比如说模块化）发展的特别迅速。模块使得开发者把复杂的代码转化为小的，干净的，依赖声明明确的单元，且基于优化工具，依赖管理和加载管理可以自动完成</p><p>不过前端的另外一个部分，css发展就相对慢一些，大多的样式表却依旧是巨大且充满了全局类名，这使得维护和修改都非常困难和复制</p><p>最近一个叫做css modules技术就一在于把js的模块化思想带入css中来，通过css模块，所有的类名，动画名默认都只当作用于当前的模块。webpack从一开始就对css模块化提供了支持，在css loader中进行配置后，你说需要做的一些就是把modules传递到所需要的地方，然后就可以直接把css的类名传递到组件的代码中，且这样做值对当前组件有效，不必担心在不同的模块中具有相同类名可能会造成的问题，具体代码如下</p><p><img src="https://upload-images.jianshu.io/upload_images/2367756-1897b66499fcc8fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/618" alt="webpack配置"></p><p>这样相同的类名也不会相互污染</p><ul><li>3.css预编译</li></ul><p>sass和less之类的预处理器是对原生css的拓展，它们允许你使用类似于variables，nesting，mixins，inheritance等不存在与css中的特性来写css，css预处理器可以将这些特殊类型的语句转化为浏览器可识别的css语句</p><p>你现在可能都已经熟悉了，在webpack里使用相关的loader进行配置就可以使用了，一下是常用的css处理loader</p><p>a:less-loader</p><p>b:sass-loader</p><p>c:stylus-loader</p><p>还有一个css处理平台postcss，可以让你用css实现更多功能，比如如何使用postcss，我们使用postcss来为css代码自动添加适应不同浏览器的css前缀</p><p>首先安装postcss-loader和autoprefixer（自动添加前缀的插件）</p><p>npm install postcss-loader autoprefixer –save-dev</p><p>并在webpack配置文件中进行设置，只需要新建一个postcss关键字，并在里面申明依赖的插件</p><p><img src="https://upload-images.jianshu.io/upload_images/2367756-4f18f565ae292d43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/469" alt="webpack配置"></p><h5 id="webpack-pulgins"><a href="#webpack-pulgins" class="headerlink" title="webpack-pulgins"></a>webpack-pulgins</h5><p>插件（pulgins）是用来拓展webpack功能的，它们会在整个构建过程中生效，执行相关的任务</p><p>loader和pulgins常常被弄混，但是它们其实是完全不同的东西，可以这么说，loader是在打包构建过程中用来处理源文件的（jsx,scss,less），一次处理一个，插件并不是直接操作单个文件，它直接对整个构建过程起作用</p><p>webpack有很多内置的插件，同时也有很多第三方插件，可以让我们完成更加丰富的功能</p><ul><li>如何使用插件</li></ul><p>要使用某个插件，我们需要通过npm安装它，然后要做的是在webpack配置中的pulgins关键字部分添加该插件的一个实例（plugins是一个数组），我们添加了一个实现版权声明的插件，如HtmlWebpackPlugin插件</p><p>该插件的作用是依据一个简单的模板，帮你生成最终的HTML5文件，这个文件中自动引用了你打包后的js文件，每次编译都在文件名中插入一个不同的哈希值</p><p>安装：</p><blockquote><p>npm install html-webpack-plugin –save-dev</p></blockquote><p><img src="https://upload-images.jianshu.io/upload_images/2367756-b8ee65749bcc2a8a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/514" alt="webpack配置"></p><h5 id="本文已完，感谢您的阅读"><a href="#本文已完，感谢您的阅读" class="headerlink" title="本文已完，感谢您的阅读"></a>本文已完，感谢您的阅读</h5>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;转载文档：&lt;a href=&quot;https://www.jianshu.com/p/d745b94ae920&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.jianshu.com/p/d
+      
+    
+    </summary>
+    
+    
+      <category term="前端框架学习" scheme="https://wyy511.top/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>socket.io学习</title>
