@@ -1,3 +1,5 @@
+https://wyy511.top/javascript/JSONP学习.html
+https://wyy511.top/javascript/基于MVC的JavaScript Web富应用开发(十).html
 https://wyy511.top/javascript/js构造函数.html
 https://wyy511.top/javascript/正则表达式学习.html
 https://wyy511.top/frame/入门webpack.html
