@@ -69,6 +69,29 @@
   </entry>
   
   <entry>
+    <title>心灵美文（现代诗歌）</title>
+    <link href="https://wyy511.top/songs/%E5%BF%83%E7%81%B5%E7%BE%8E%E6%96%87%EF%BC%88%E7%8E%B0%E4%BB%A3%E8%AF%97%E6%AD%8C%EF%BC%89.html"/>
+    <id>https://wyy511.top/songs/心灵美文（现代诗歌）.html</id>
+    <published>2018-08-28T14:22:29.000Z</published>
+    <updated>2018-08-29T14:22:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="《飞鸟集》–泰戈尔"><a href="#《飞鸟集》–泰戈尔" class="headerlink" title="《飞鸟集》–泰戈尔"></a>《飞鸟集》–泰戈尔</h2><pre><code>世界上最遥远的距离，不是生与死的距离，而是我站在你面前，你却不知道我爱你；世界上最遥远的距离，不是我站在你面前，你不知道我爱你，而是明明知道彼此相爱，却不能在一起；世界上最遥远的距离，不是明明知道彼此相爱却不能在一起，而是明明无法抵挡这股思念，却还得故意装作丝毫没有把你放在心里；世界上最遥远的距离，不是明明无法抵挡这股思念，却还得故意装作丝毫没有把你放在心里，而是用自己冷漠的心对爱你的人，掘了一条无法跨越的沟渠。</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;《飞鸟集》–泰戈尔&quot;&gt;&lt;a href=&quot;#《飞鸟集》–泰戈尔&quot; class=&quot;headerlink&quot; title=&quot;《飞鸟集》–泰戈尔&quot;&gt;&lt;/a&gt;《飞鸟集》–泰戈尔&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;世界上最遥远的距离，不是生与死的距离，而是我站在你面前，你却不知道我
+      
+    
+    </summary>
+    
+    
+      <category term="心灵美文" scheme="https://wyy511.top/tags/%E5%BF%83%E7%81%B5%E7%BE%8E%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
     <title>js构造函数</title>
     <link href="https://wyy511.top/javascript/js%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0.html"/>
     <id>https://wyy511.top/javascript/js构造函数.html</id>
@@ -312,30 +335,6 @@
   </entry>
   
   <entry>
-    <title>JS事件循环</title>
-    <link href="https://wyy511.top/javascript/js%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF.html"/>
-    <id>https://wyy511.top/javascript/js事件循环.html</id>
-    <published>2018-05-15T08:10:10.000Z</published>
-    <updated>2018-05-16T03:11:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><br></p><h4 id="一、为什么JS是单线程"><a href="#一、为什么JS是单线程" class="headerlink" title="一、为什么JS是单线程"></a>一、为什么JS是单线程</h4><pre><code>是由JS的用途决定的，其用途主要是与用户互动，以及操作DOM，如果不是单线程的话会带来很复杂的同步问题。比如：如果是多线程的话，一个用户新建一个DOM，另一个用户删除同一个DOM，该如何处理将变得非常麻烦。在html5中提出了web worker（todo 改天添加web worker的讲解）标准，JS可以创建多个线程或者是iframe，但是其他子线程主要是用来进行JS计算不能操作DOM，且受到子线程的控制。所以也并没有改变JS单线程的本质</code></pre><h4 id="二、同步和异步"><a href="#二、同步和异步" class="headerlink" title="二、同步和异步"></a>二、同步和异步</h4><pre><code>由于是单线程，所有任务需要排队，但是如果队列中所有的任务都是同步的话会造成资源的浪费。于是任务分为两类：同步任务和异步任务。异步任务的过程：    主线程（函数调用栈）发起一个异步请求，相应的工作线程接收请求，并告知主线程已经收到，主线程继续执行后面的同步代码，同时工作线程执行异步任务，工作线程完成工作后，通知主线程，主线程收到通知后，执行回调函数</code></pre><h4 id="三、宏任务和微任务"><a href="#三、宏任务和微任务" class="headerlink" title="三、宏任务和微任务"></a>三、宏任务和微任务</h4><pre><code>宏任务（micro-task）主要是：script代码段、setTimeout、setInterval、Promise的构造函数是同步的、setImmediate、I/O、UIrendering微任务（macro-task）主要是：Promise的回调、process.nextTick</code></pre><h4 id="四、任务队列和事件循环"><a href="#四、任务队列和事件循环" class="headerlink" title="四、任务队列和事件循环"></a>四、任务队列和事件循环</h4><pre><code>了解任务队列之前，先了解一下任务源，我们将发起异步任务的称之为任务源（setTimeout、Promise等），进入任务队列的是他们指定的任务。在一个线程中，事件循环是唯一的，任务队列是多个的。来自不同任务源的队列进入到不同的任务队列，setTimeout和setInterval是同源的</code></pre><h5 id="事件循环的步骤："><a href="#事件循环的步骤：" class="headerlink" title="事件循环的步骤："></a>事件循环的步骤：</h5><pre><code>1、运行主线程（函数调用栈）中的同步任务2、主线程（函数调用栈）执行到任务源时，通知相应的webAPIs进行相应的执行异步任务，将任务源指定的异步任务放入任务队列中3、主线程（函数调用栈）中的任务执行完毕后，然后执行所有的微任务，再执行宏任务，找到一个任务队列执行完毕，再执行所有的微任务4、不断执行第三步</code></pre><blockquote><p>事件循环：指主线程重复从任务队列中取消息，执行的过程</p></blockquote><p>先来一个简单的例子：</p><pre><code>setTimeout(() =&gt; {    console.log(&apos;begin&apos;)})new Promise((resolve) =&gt; {    console.log(&apos;promise begin&apos;)    for(let i = 0; i &lt; 1000; i++) {        i == 999 &amp;&amp; resolve()    }}).then(() =&gt; {    console.log(&apos;then begin&apos;)})console.log(&apos;end&apos;)</code></pre><p>因为promise的构造函数是同步的，promise.then是异步的微任务，所以promise beigin先于end<br>根据上面对宏任务和微任务的分析，其输出的情况为【promise begin——end——then begin——begin】<br>再来一个复杂点的，我们来一步一步的分析一个例子来看：</p><pre><code>console.log(&apos;golb1&apos;);setTimeout(function() {    console.log(&apos;timeout1&apos;);    process.nextTick(function() {        console.log(&apos;timeout1_nextTick&apos;);    })    new Promise(function(resolve) {        console.log(&apos;timeout1_promise&apos;);        resolve();    }).then(function() {        console.log(&apos;timeout1_then&apos;)    })})setImmediate(function() {    console.log(&apos;immediate1&apos;);    process.nextTick(function() {        console.log(&apos;immediate1_nextTick&apos;);    })    new Promise(function(resolve) {        console.log(&apos;immediate1_promise&apos;);        resolve();    }).then(function() {        console.log(&apos;immediate1_then&apos;)    })})process.nextTick(function() {    console.log(&apos;glob1_nextTick&apos;);})new Promise(function(resolve) {    console.log(&apos;glob1_promise&apos;);    resolve();}).then(function() {    console.log(&apos;glob1_then&apos;)})setTimeout(function() {    console.log(&apos;timeout2&apos;);    process.nextTick(function() {        console.log(&apos;timeout2_nextTick&apos;);    })    new Promise(function(resolve) {        console.log(&apos;timeout2_promise&apos;);        resolve();    }).then(function() {        console.log(&apos;timeout2_then&apos;)    })})process.nextTick(function() {    console.log(&apos;glob2_nextTick&apos;);})new Promise(function(resolve) {    console.log(&apos;glob2_promise&apos;);    resolve();}).then(function() {    console.log(&apos;glob2_then&apos;)})setImmediate(function() {    console.log(&apos;immediate2&apos;);    process.nextTick(function() {        console.log(&apos;immediate2_nextTick&apos;);    })    new Promise(function(resolve) {        console.log(&apos;immediate2_promise&apos;);        resolve();    }).then(function() {        console.log(&apos;immediate2_then&apos;)    })})</code></pre><p>一、第一步、首先执行宏任务script。全局入栈。输出glob1</p><p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d563d442f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p><p>二、遇到setTimeout，作为任务源，将指定的任务加入宏任务队列</p><p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d8926f643?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p><p>三、遇到setImmediate，作为任务源，将指定的任务加入宏任务队列</p><p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d56422aa4?imageslim" alt=""></p><p>四、遇到process.nextTick，作为任务源，将指定的任务加入微任务队列</p><p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d8eefb889?imageslim" alt=""></p><p>五、遇到Promise的构造函数，进入执行栈，输出glob1_promise，Promise.then()作为任务源，将指定的任务加入微任务</p><p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d565af410?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p><p>六、遇到setTimeout，作为任务源，将指定的任务加入宏任务队列</p><p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d6135495e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p><p>七、遇到process.nextTick，作为任务源，将指定的任务加入微任务队列</p><p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d61da8ad8?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p><p>八、遇到Promise的构造函数，进入执行栈，输出glob2_promise，Promise.then()作为任务源，将指定的任务加入微任务</p><p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d61c59908?imageslim" alt=""></p><p>九、遇到setImmediate，作为任务源，将指定的任务加入宏任务队列</p><p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d82ecee97?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p><p>十、执行所有微任务队列，输出glob1_nextTick和glob2_nextTick、glob1_then、glob2_then</p><p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d83193a9d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p><blockquote><p>事件机制其实就是异步任务的通知机制</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;h4 id=&quot;一、为什么JS是单线程&quot;&gt;&lt;a href=&quot;#一、为什么JS是单线程&quot; class=&quot;headerlink&quot; title=&quot;一、为什么JS是单线程&quot;&gt;&lt;/a&gt;一、为什么JS是单线程&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;是由JS的用途决定的，其用途
-      
-    
-    </summary>
-    
-    
-      <category term="前端js学习" scheme="https://wyy511.top/tags/%E5%89%8D%E7%AB%AFjs%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>node.js第一个应用</title>
     <link href="https://wyy511.top/node/node.js%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%BA%94%E7%94%A8.html"/>
     <id>https://wyy511.top/node/node.js的第一个应用.html</id>
@@ -357,6 +356,30 @@
     
     
       <category term="node.js学习" scheme="https://wyy511.top/tags/node-js%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS事件循环</title>
+    <link href="https://wyy511.top/javascript/js%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF.html"/>
+    <id>https://wyy511.top/javascript/js事件循环.html</id>
+    <published>2018-05-15T08:10:10.000Z</published>
+    <updated>2018-05-16T03:11:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><br></p><h4 id="一、为什么JS是单线程"><a href="#一、为什么JS是单线程" class="headerlink" title="一、为什么JS是单线程"></a>一、为什么JS是单线程</h4><pre><code>是由JS的用途决定的，其用途主要是与用户互动，以及操作DOM，如果不是单线程的话会带来很复杂的同步问题。比如：如果是多线程的话，一个用户新建一个DOM，另一个用户删除同一个DOM，该如何处理将变得非常麻烦。在html5中提出了web worker（todo 改天添加web worker的讲解）标准，JS可以创建多个线程或者是iframe，但是其他子线程主要是用来进行JS计算不能操作DOM，且受到子线程的控制。所以也并没有改变JS单线程的本质</code></pre><h4 id="二、同步和异步"><a href="#二、同步和异步" class="headerlink" title="二、同步和异步"></a>二、同步和异步</h4><pre><code>由于是单线程，所有任务需要排队，但是如果队列中所有的任务都是同步的话会造成资源的浪费。于是任务分为两类：同步任务和异步任务。异步任务的过程：    主线程（函数调用栈）发起一个异步请求，相应的工作线程接收请求，并告知主线程已经收到，主线程继续执行后面的同步代码，同时工作线程执行异步任务，工作线程完成工作后，通知主线程，主线程收到通知后，执行回调函数</code></pre><h4 id="三、宏任务和微任务"><a href="#三、宏任务和微任务" class="headerlink" title="三、宏任务和微任务"></a>三、宏任务和微任务</h4><pre><code>宏任务（micro-task）主要是：script代码段、setTimeout、setInterval、Promise的构造函数是同步的、setImmediate、I/O、UIrendering微任务（macro-task）主要是：Promise的回调、process.nextTick</code></pre><h4 id="四、任务队列和事件循环"><a href="#四、任务队列和事件循环" class="headerlink" title="四、任务队列和事件循环"></a>四、任务队列和事件循环</h4><pre><code>了解任务队列之前，先了解一下任务源，我们将发起异步任务的称之为任务源（setTimeout、Promise等），进入任务队列的是他们指定的任务。在一个线程中，事件循环是唯一的，任务队列是多个的。来自不同任务源的队列进入到不同的任务队列，setTimeout和setInterval是同源的</code></pre><h5 id="事件循环的步骤："><a href="#事件循环的步骤：" class="headerlink" title="事件循环的步骤："></a>事件循环的步骤：</h5><pre><code>1、运行主线程（函数调用栈）中的同步任务2、主线程（函数调用栈）执行到任务源时，通知相应的webAPIs进行相应的执行异步任务，将任务源指定的异步任务放入任务队列中3、主线程（函数调用栈）中的任务执行完毕后，然后执行所有的微任务，再执行宏任务，找到一个任务队列执行完毕，再执行所有的微任务4、不断执行第三步</code></pre><blockquote><p>事件循环：指主线程重复从任务队列中取消息，执行的过程</p></blockquote><p>先来一个简单的例子：</p><pre><code>setTimeout(() =&gt; {    console.log(&apos;begin&apos;)})new Promise((resolve) =&gt; {    console.log(&apos;promise begin&apos;)    for(let i = 0; i &lt; 1000; i++) {        i == 999 &amp;&amp; resolve()    }}).then(() =&gt; {    console.log(&apos;then begin&apos;)})console.log(&apos;end&apos;)</code></pre><p>因为promise的构造函数是同步的，promise.then是异步的微任务，所以promise beigin先于end<br>根据上面对宏任务和微任务的分析，其输出的情况为【promise begin——end——then begin——begin】<br>再来一个复杂点的，我们来一步一步的分析一个例子来看：</p><pre><code>console.log(&apos;golb1&apos;);setTimeout(function() {    console.log(&apos;timeout1&apos;);    process.nextTick(function() {        console.log(&apos;timeout1_nextTick&apos;);    })    new Promise(function(resolve) {        console.log(&apos;timeout1_promise&apos;);        resolve();    }).then(function() {        console.log(&apos;timeout1_then&apos;)    })})setImmediate(function() {    console.log(&apos;immediate1&apos;);    process.nextTick(function() {        console.log(&apos;immediate1_nextTick&apos;);    })    new Promise(function(resolve) {        console.log(&apos;immediate1_promise&apos;);        resolve();    }).then(function() {        console.log(&apos;immediate1_then&apos;)    })})process.nextTick(function() {    console.log(&apos;glob1_nextTick&apos;);})new Promise(function(resolve) {    console.log(&apos;glob1_promise&apos;);    resolve();}).then(function() {    console.log(&apos;glob1_then&apos;)})setTimeout(function() {    console.log(&apos;timeout2&apos;);    process.nextTick(function() {        console.log(&apos;timeout2_nextTick&apos;);    })    new Promise(function(resolve) {        console.log(&apos;timeout2_promise&apos;);        resolve();    }).then(function() {        console.log(&apos;timeout2_then&apos;)    })})process.nextTick(function() {    console.log(&apos;glob2_nextTick&apos;);})new Promise(function(resolve) {    console.log(&apos;glob2_promise&apos;);    resolve();}).then(function() {    console.log(&apos;glob2_then&apos;)})setImmediate(function() {    console.log(&apos;immediate2&apos;);    process.nextTick(function() {        console.log(&apos;immediate2_nextTick&apos;);    })    new Promise(function(resolve) {        console.log(&apos;immediate2_promise&apos;);        resolve();    }).then(function() {        console.log(&apos;immediate2_then&apos;)    })})</code></pre><p>一、第一步、首先执行宏任务script。全局入栈。输出glob1</p><p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d563d442f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p><p>二、遇到setTimeout，作为任务源，将指定的任务加入宏任务队列</p><p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d8926f643?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p><p>三、遇到setImmediate，作为任务源，将指定的任务加入宏任务队列</p><p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d56422aa4?imageslim" alt=""></p><p>四、遇到process.nextTick，作为任务源，将指定的任务加入微任务队列</p><p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d8eefb889?imageslim" alt=""></p><p>五、遇到Promise的构造函数，进入执行栈，输出glob1_promise，Promise.then()作为任务源，将指定的任务加入微任务</p><p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d565af410?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p><p>六、遇到setTimeout，作为任务源，将指定的任务加入宏任务队列</p><p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d6135495e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p><p>七、遇到process.nextTick，作为任务源，将指定的任务加入微任务队列</p><p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d61da8ad8?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p><p>八、遇到Promise的构造函数，进入执行栈，输出glob2_promise，Promise.then()作为任务源，将指定的任务加入微任务</p><p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d61c59908?imageslim" alt=""></p><p>九、遇到setImmediate，作为任务源，将指定的任务加入宏任务队列</p><p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d82ecee97?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p><p>十、执行所有微任务队列，输出glob1_nextTick和glob2_nextTick、glob1_then、glob2_then</p><p><img src="https://user-gold-cdn.xitu.io/2018/3/19/1623d52d83193a9d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p><blockquote><p>事件机制其实就是异步任务的通知机制</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h4 id=&quot;一、为什么JS是单线程&quot;&gt;&lt;a href=&quot;#一、为什么JS是单线程&quot; class=&quot;headerlink&quot; title=&quot;一、为什么JS是单线程&quot;&gt;&lt;/a&gt;一、为什么JS是单线程&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;是由JS的用途决定的，其用途
+      
+    
+    </summary>
+    
+    
+      <category term="前端js学习" scheme="https://wyy511.top/tags/%E5%89%8D%E7%AB%AFjs%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -383,29 +406,6 @@
     
     
       <category term="markdown 语法" scheme="https://wyy511.top/tags/markdown-%E8%AF%AD%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>心灵美文（现代诗歌）</title>
-    <link href="https://wyy511.top/songs/%E5%BF%83%E7%81%B5%E7%BE%8E%E6%96%87%EF%BC%88%E7%8E%B0%E4%BB%A3%E8%AF%97%E6%AD%8C%EF%BC%89.html"/>
-    <id>https://wyy511.top/songs/心灵美文（现代诗歌）.html</id>
-    <published>2018-05-11T07:44:29.000Z</published>
-    <updated>2018-08-29T14:19:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="《飞鸟集》–泰戈尔"><a href="#《飞鸟集》–泰戈尔" class="headerlink" title="《飞鸟集》–泰戈尔"></a>《飞鸟集》–泰戈尔</h2><pre><code>世界上最遥远的距离，不是生与死的距离，而是我站在你面前，你却不知道我爱你；世界上最遥远的距离，不是我站在你面前，你不知道我爱你，而是明明知道彼此相爱，却不能在一起；世界上最遥远的距离，不是明明知道彼此相爱却不能在一起，而是明明无法抵挡这股思念，却还得故意装作丝毫没有把你放在心里；世界上最遥远的距离，不是明明无法抵挡这股思念，却还得故意装作丝毫没有把你放在心里，而是用自己冷漠的心对爱你的人，掘了一条无法跨越的沟渠。</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;《飞鸟集》–泰戈尔&quot;&gt;&lt;a href=&quot;#《飞鸟集》–泰戈尔&quot; class=&quot;headerlink&quot; title=&quot;《飞鸟集》–泰戈尔&quot;&gt;&lt;/a&gt;《飞鸟集》–泰戈尔&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;世界上最遥远的距离，不是生与死的距离，而是我站在你面前，你却不知道我
-      
-    
-    </summary>
-    
-    
-      <category term="心灵美文" scheme="https://wyy511.top/tags/%E5%BF%83%E7%81%B5%E7%BE%8E%E6%96%87/"/>
     
   </entry>
   
