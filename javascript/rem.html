@@ -118,7 +118,7 @@
 <meta property="og:site_name" content="Wiya&#39;s blog">
 <meta property="og:description" content="前言作为一名前端开发人员，在做移动适配时，rem是我们常用到的单位。有些人首先会想到要在项目中引入加载阿里CDN的文件http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js,然后在编辑器中添加pxtorem自动将px通过一定的算法转化。但是，我今天要说的是另外一种方法。使用sass工具并修改HTML的fonts">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-09T12:06:08.000Z">
+<meta property="og:updated_time" content="2018-11-09T12:09:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用sass完成rem与px的转换">
 <meta name="twitter:description" content="前言作为一名前端开发人员，在做移动适配时，rem是我们常用到的单位。有些人首先会想到要在项目中引入加载阿里CDN的文件http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js,然后在编辑器中添加pxtorem自动将px通过一定的算法转化。但是，我今天要说的是另外一种方法。使用sass工具并修改HTML的fonts">
@@ -422,10 +422,10 @@
       return htmlDom.style.fontSize = htmlWidth / 10 + &apos;px&apos;;
     }
     domResize();
+    window.onresize = domResize;
+  &lt;/script&gt;
 </code></pre></blockquote>
-<pre><code>  window.onresize = domResize;
-&lt;/script&gt;
-</code></pre><p>安装sass</p>
+<p>安装sass</p>
 <p>$ npm install sass-loader node-sass –save-dev</p>
 <p>在assets新建文件夹scss，在建文件rem.sass,内容如下所示</p>
 <p>@function rem($px)<br>  $rem: 37.5px;<br>  @return ($px / $rem) + rem;<br>.container<br>  width: rem(375px);<br>  height: rem(500px);<br>  background: black;<br>  .inner<br>    width: rem(200px);<br>    height: rem(200px);<br>    background: red;</p>
