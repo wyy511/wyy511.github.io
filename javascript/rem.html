@@ -92,7 +92,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="前端js学习," />
 
 
 
@@ -110,17 +110,18 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://wyy511.top/archives/index/test.html">
+<meta name="description" content="前言作为一名前端开发人员，在做移动适配时，rem是我们常用到的单位。有些人首先会想到要在项目中引入加载阿里CDN的文件http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js,然后在编辑器中添加pxtorem自动将px通过一定的算法转化。但是，我今天要说的是另外一种方法。使用sass工具并修改HTML的fonts">
+<meta name="keywords" content="前端js学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用sass完成rem与px的转换">
+<meta property="og:url" content="https://wyy511.top/javascript/rem.html">
 <meta property="og:site_name" content="Wiya&#39;s blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="前言作为一名前端开发人员，在做移动适配时，rem是我们常用到的单位。有些人首先会想到要在项目中引入加载阿里CDN的文件http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js,然后在编辑器中添加pxtorem自动将px通过一定的算法转化。但是，我今天要说的是另外一种方法。使用sass工具并修改HTML的fonts">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-21T07:31:44.000Z">
+<meta property="og:updated_time" content="2018-11-09T12:06:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="使用sass完成rem与px的转换">
+<meta name="twitter:description" content="前言作为一名前端开发人员，在做移动适配时，rem是我们常用到的单位。有些人首先会想到要在项目中引入加载阿里CDN的文件http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js,然后在编辑器中添加pxtorem自动将px通过一定的算法转化。但是，我今天要说的是另外一种方法。使用sass工具并修改HTML的fonts">
 
 
 
@@ -149,13 +150,13 @@
 
 
 
-  <link rel="canonical" href="https://wyy511.top/archives/index/test.html"/>
+  <link rel="canonical" href="https://wyy511.top/javascript/rem.html"/>
 
 
 
 
 
-  <title>Hello World | Wiya's blog</title>
+  <title>使用sass完成rem与px的转换 | Wiya's blog</title>
   
 
 
@@ -314,42 +315,212 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wyy511.top/javascript/rem.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wiya">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wiya's blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">Hello World</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+          <h1 class="post-title" itemprop="name headline">使用sass完成rem与px的转换</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-02T21:10:15+08:00">
+                2018-09-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/javascript/rem.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/javascript/rem.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p><br></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>作为一名前端开发人员，在做移动适配时，rem是我们常用到的单位。有些人首先会想到要在项目中引入加载阿里CDN的文件<code><br><a href="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js" target="_blank" rel="noopener">http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js</a></code>,然后在编辑器中添加pxtorem自动将px通过一定的算法转化。但是，我今天要说的是另外一种方法。使用sass工具并修改HTML的fontsize属性，让其自动计算每个标签属性的像素值。</p>
+<h2 id="rem与em的区别"><a href="#rem与em的区别" class="headerlink" title="rem与em的区别"></a>rem与em的区别</h2><p>rem是css3中新增加的一个单位值，它和em单位一样，都是一个相对单位。但是，不同的是em相对于元素的父元素font-size进行计算的，而rem是相对于根元素html的font-size进行计算。这样一来rem就绕开了复杂的层级关系，实现了类似于em的单位功能。</p>
+<h2 id="项目中使用rem"><a href="#项目中使用rem" class="headerlink" title="项目中使用rem"></a>项目中使用rem</h2><p>这里我将在一个vue的项目中使用rem</p>
+<p>$ npm install -g vue-cli<br>$ vue init webpack my-project<br>$ cd my-project<br>$ npm install<br>$ npm run dev</p>
+<p>项目结构：</p>
+<p>.<br>├── build/                      # webpack配置文件<br>│   └── …<br>├── config/<br>│   ├── index.js                # 主要项目配置<br>│   └── …<br>├── src/<br>│   ├── main.js                 # 应用入口文件<br>│   ├── App.vue                 # 主应用程序组件<br>│   ├── components/             # ui组件<br>│   │   └── …<br>│   └── assets/                 # 模块资源（由webpack处理）<br>│       └── …<br>├── static/                     # 纯静态资源（直接复制）<br>├── test/<br>│   └── unit/                   # 单元测试<br>│   │   ├── specs/              # 测试spec文件<br>│   │   ├── index.js            # 测试构建条目文件<br>│   │   └── karma.conf.js       # 测试跑步者配置文件<br>│   └── e2e/                    # e2e测试<br>│   │   ├── specs/              # 测试spec文件<br>│   │   ├── custom-assertions/  # e2e测试的自定义断言<br>│   │   ├── runner.js           # 测试跑步脚本<br>│   │   └── nightwatch.conf.js  # 测试跑步者配置文件<br>├── .babelrc                    # babel 配置<br>├── .postcssrc.js               # postcss 配置<br>├── .eslintrc.js                # eslint 配置<br>├── .editorconfig               # editor 配置<br>├── index.html                  # index.html模板<br>└── package.json                # 构建脚本和依赖关系</p>
+<p>在index.html的body中添加一个script代码，如下所示</p>
+<blockquote>
+<pre><code>&lt;script&gt;
+    var domResize = function () {
+      // 获取视窗宽度
+      var htmlWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      // 修改视窗尺寸
+      var htmlDom = document.getElementsByTagName(&apos;html&apos;)[0];
+      return htmlDom.style.fontSize = htmlWidth / 10 + &apos;px&apos;;
+    }
+    domResize();
+</code></pre></blockquote>
+<pre><code>  window.onresize = domResize;
+&lt;/script&gt;
+</code></pre><p>安装sass</p>
+<p>$ npm install sass-loader node-sass –save-dev</p>
+<p>在assets新建文件夹scss，在建文件rem.sass,内容如下所示</p>
+<p>@function rem($px)<br>  $rem: 37.5px;<br>  @return ($px / $rem) + rem;<br>.container<br>  width: rem(375px);<br>  height: rem(500px);<br>  background: black;<br>  .inner<br>    width: rem(200px);<br>    height: rem(200px);<br>    background: red;</p>
+<p>这样我们就可以使用rem()来将px转化为rem了。</p>
+<h2 id="本文已完，感谢您的阅读"><a href="#本文已完，感谢您的阅读" class="headerlink" title="本文已完，感谢您的阅读"></a>本文已完，感谢您的阅读</h2>
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端js学习/" rel="tag"><i class="fa fa-tag"></i> 前端js学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/javascript/js常见问题.html" rel="next" title="js常见问题">
+                <i class="fa fa-chevron-left"></i> js常见问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
   </div>
 
 
@@ -535,7 +706,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rem与em的区别"><span class="nav-number">2.</span> <span class="nav-text">rem与em的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目中使用rem"><span class="nav-number">3.</span> <span class="nav-text">项目中使用rem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本文已完，感谢您的阅读"><span class="nav-number">4.</span> <span class="nav-text">本文已完，感谢您的阅读</span></a></li></ol></div>
             
 
           </div>
@@ -679,10 +850,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
