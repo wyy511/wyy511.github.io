@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wyy511.top/about/index.html</loc>
+    
+    <lastmod>2018-11-23T03:01:01.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wyy511.top/javascript/rem.html</loc>
     
     <lastmod>2018-11-09T12:09:24.000Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>https://wyy511.top/socketio/socket.io%E5%AD%A6%E4%B9%A0.html</loc>
     
     <lastmod>2018-08-09T15:35:55.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wyy511.top/about/index.html</loc>
-    
-    <lastmod>2018-08-09T12:21:23.000Z</lastmod>
     
   </url>
   
